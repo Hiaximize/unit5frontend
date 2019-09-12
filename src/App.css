@@ -31,10 +31,28 @@
 /* INFO CONTAINER */
 
 #infoContainer{
-
+  overflow-y: scroll;
   border: 1px solid black;
   width: 96%;
   height: 80vh;
   /* height: 100%; */
   margin: 15px auto;
+}
+
+#infoContainer::-webkit-scrollbar{
+  width: 0 | important;
+}
+
+.tableHeader{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* MEMBER CONTAINER */
+
+#memberRow{
+  width: 100%;
+  height: 40px;
+  border: 1px solid black;
 }
