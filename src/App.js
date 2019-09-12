@@ -1,24 +1,26 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Main from './Main.js'
 
 function App() {
+ 
+  fetch('https://calm-spire-04922.herokuapp.com/hello',{
+    method: "GET",
+    header: "no-cors"
+  }).then(
+    (data) => data.json()).then(jData =>
+      console.log(jData))
+
+  
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        
+          <Main />
+        
+       
     </div>
   );
 }
