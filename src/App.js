@@ -1,19 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Main from './Main.js'
 
 function App() {
  
-  fetch('https://calm-spire-04922.herokuapp.com/hello',{
-    method: "GET",
-    header: "no-cors"
-  }).then(
-    (data) => data.json()).then(jData =>
-      console.log(jData))
-
-  
-  
+  // fetch('http://localhost:3000/test',{
+  //   method: "GET",
+  //   mode: "no-cors"
+  // }).then(data=>console.log(JSON.stringify(data)))
+      
 
   return (
     <div className="App">

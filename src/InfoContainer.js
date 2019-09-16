@@ -6,19 +6,9 @@ class InfoContainer extends React.Component{
         return(
             <div id="infoContainer">
                
-                <table>
-                    <theader className="tableHeader">
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Membership Type</th>
-                        <th>Due Date</th>
-                    </theader>
-                    <tbody>
+                 
+                <Member />
                         
-                            <Member />
-                        
-                    </tbody>
-                </table>
                 
             </div>
         )
