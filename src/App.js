@@ -5,15 +5,11 @@ import Main from './Main.js'
 
 function App() {
  
-  fetch('https://calm-spire-04922.herokuapp.com/hello',{
+  fetch('http://localhost:3000/test',{
     method: "GET",
-    header: "no-cors"
-  }).then(
-    (data) => data.json()).then(jData =>
-      console.log(jData))
-
-  
-  
+    mode: "no-cors"
+  }).then(data=>console.log(JSON.stringify(data)))
+      
 
   return (
     <div className="App">
