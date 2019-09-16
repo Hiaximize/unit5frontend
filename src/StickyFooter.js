@@ -11,11 +11,11 @@ class MyStickyFooter extends React.Component{
             stickyStyles={{display: "none"}}>
                 <div id="footerContainer">
                     <ul id="footer">
-                        <li><a target="_blank" href="https://www.linkedin.com/in/dbarkerit">LinkedIn</a></li>
+                        <li><a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/dbarkerit">LinkedIn</a></li>
 
-                        <li><a target="_blank" href="https://www.github.com/hiaximize">Github</a></li>
+                        <li><a rel="noopener noreferrer" target="_blank" href="https://www.github.com/hiaximize">Github</a></li>
 
-                        <li><a target="_blank" href="#">Credits</a></li>
+                        <li><a rel="noopener noreferrer" target="_blank" href="https://www.derekbarker.herokuapp.com">My Portfolio</a></li>
                     </ul>
                     </div>
                 

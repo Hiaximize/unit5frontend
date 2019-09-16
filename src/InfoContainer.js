@@ -6,8 +6,8 @@ class InfoContainer extends React.Component{
         return(
             <div id="infoContainer">
                
-                        
-                            <Member />
+                 
+                <Member />
                         
                 
             </div>
