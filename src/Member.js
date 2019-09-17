@@ -10,8 +10,9 @@ class Member extends React.Component{
 
         this.handleOpenModal = this.handleOpenModal.bind(this)
         this.handleCloseModal = this.handleCloseModal.bind(this)
+
     }
-  
+
     handleOpenModal(){
         this.setState({
             showModal: true
@@ -30,6 +31,12 @@ class Member extends React.Component{
             <div id="memberRow">
 
                 {/* ADD ROW CONTENT FOR MEMBER HERE */}
+
+                <button onClick={()=>{
+                    fetch('http://localhost:3000/api', {
+                        method: "GET"
+                    }).then(data=>data.json())
+                    .then(json => console.log(json))}}> Grab Data</button>
 
                 <button onClick={this.handleOpenModal}>Edit Member</button>
                 <ReactModal 
