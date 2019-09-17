@@ -15,7 +15,7 @@ class MyStickyFooter extends React.Component{
 
                         <li><a rel="noopener noreferrer" target="_blank" href="https://www.github.com/hiaximize">Github</a></li>
 
-                        <li><a rel="noopener noreferrer" target="_blank" href="https://www.derekbarker.herokuapp.com">My Portfolio</a></li>
+                        <li><a rel="noopener noreferrer" target="_blank" href="http://derekbarker.herokuapp.com/">My Portfolio</a></li>
                     </ul>
                     </div>
                 

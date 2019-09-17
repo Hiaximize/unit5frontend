@@ -48,12 +48,20 @@ class AddMember extends React.Component{
                                 
                                         <div id="bottomRow">
                                             <textarea rows="10" name="addMemberNotes" id="addMemberNotes" className="addMemberInput" placeholder="Notes" />
+                                        
+                                            <input type="submit" id="addMemberSubmitButton" value="ADD MEMBER" />
+
+                                            <button id="addMemberCancelButton" onClick={()=>{
+                                                this.props.handleView('home')
+                                            }}>Cancel</button>
+                                            
                                         </div>
 
                                     </div>
 
                                     <div id="addMemberProfilePhotoContainer">
                                         <img src="placeholder.png" id="addMemberPicture" alt="profileImage"/>
+                                        
                                     </div>
                                 </div>
                                 
