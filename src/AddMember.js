@@ -1,6 +1,37 @@
 import React from 'react'
 
 class AddMember extends React.Component{
+    constructor(props){
+        super(props)
+        this.state={
+            _id: null,
+            firstName: '',
+            lastName: '',
+            phoneNumber: '',
+            address: '',
+            city: '',
+            state: '',
+            zip: '',
+            email: '',
+            basic: '',
+            silver: '',
+            premium: '',
+            startDate: null,
+            endDate: null,
+            notes: ''
+        }
+    
+    }
+    
+    
+    handleChange() {
+            this.props.handleChange()
+    }
+
+    handleSubmit(){
+        this.props.handleSubmit()
+    }
+    
     render(){
         return(
             <div id="addMemberContainer">

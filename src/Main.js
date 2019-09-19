@@ -10,11 +10,26 @@ class Main extends React.Component{
         this.state={
             view: {
                 pageTitle: 'home',
-                page: 'home'
+                page: 'home',
+                members: []
             }
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleView = this.handleView.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+        fetch('https://membershiptrackerbackend.herokuapp.com/members',{
+                method: "GET",
+                mode: "cors"
+            }).then(data => {
+                return data.json()
+            })
+            .then(json => this.setState({
+                members: json
+            }))
+    }
+   
+    handleSubmit(event){
+        event.preventDefault()
     }
     handleChange(event){
         this.setState({
@@ -41,6 +56,10 @@ class Main extends React.Component{
             }
         })
     }
+
+    // handleCreate(createdMember){
+
+    // }
 
     render(){
         return(
