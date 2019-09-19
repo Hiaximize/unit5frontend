@@ -32,7 +32,7 @@ class Member extends React.Component{
             <div id="memberRow">
 
                 <button onClick={()=>{
-                    fetch('http://membershiptrackerbackend.herokuapp.com/members', {
+                    fetch('https://membershiptrackerbackend.herokuapp.com/members', {
                         method: "GET",
                         mode: "cors"
                     }).then(data=>console.log(data.json()))
