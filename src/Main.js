@@ -3,6 +3,7 @@ import Header from './Header.js'
 import MyStickyFooter from './StickyFooter.js'
 import InfoContainer from './InfoContainer.js'
 import AddMember from './AddMember.js'
+import Calendar from './Calendar.js'
 
 class Main extends React.Component{
     constructor(props){
@@ -35,37 +36,7 @@ class Main extends React.Component{
                 members: json
             }))
     }
-   
-    handleSubmit(event){
-        event.preventDefault()
-        this.handleCreate(this.state)
-    }
 
-    handleChange(event){
-        this.setState({
-            [event.target.id]: event.target.value
-        })
-    }
-
-    handleView(view){
-        let pageTitle = ''
-        switch(view){
-            case 'home':
-                pageTitle = 'Home'
-                break
-            case 'addMember':
-                pageTitle = "Add Member"
-                break
-            default:
-                break
-        }
-        this.setState({
-            view: { 
-                page: view,
-                pageTitle: pageTitle
-            }
-        })
-    }
 
     handleCreate(createdMember){
         fetch('https://membershiptrackerbackend.herokuapp.com/members', {
@@ -113,6 +84,40 @@ class Main extends React.Component{
     //         return {members}
     //     })
     // }
+   
+    handleSubmit(event){
+        event.preventDefault()
+        this.handleCreate(this.state)
+    }
+
+    handleChange(event){
+        this.setState({
+            [event.target.id]: event.target.value
+        })
+    }
+
+    handleView(view){
+        let pageTitle = ''
+        switch(view){
+            case 'home':
+                pageTitle = 'Home'
+                break
+            case 'addMember':
+                pageTitle = "Add Member"
+                break
+            case 'calendar':
+                pageTitle = "Calendar"
+                break
+            default:
+                break
+        }
+        this.setState({
+            view: { 
+                page: view,
+                pageTitle: pageTitle
+            }
+        })
+    }
 
     componentDidMount(){
         this.fetchMembers()
@@ -130,6 +135,12 @@ class Main extends React.Component{
                 {this.state.view.page==='home' ?
                 <InfoContainer
                 members={this.state.members} 
+                view={this.state.view}
+                handleChange={this.handleChange}
+                handleView={this.handleView}/> : ''}
+
+                {this.state.view.page==='calendar' ?
+                <Calendar 
                 view={this.state.view}
                 handleChange={this.handleChange}
                 handleView={this.handleView}/> : ''}

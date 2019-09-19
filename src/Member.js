@@ -33,8 +33,12 @@ class Member extends React.Component{
             <div>
             {this.props.members.map((member, index)=>
             <div id="memberRow" key={index}>
-                <h6>{member.firstName} {member.lastName}</h6>  <h6>{member.dueDate}</h6> <h6>{member.phoneNumber}</h6> <h6>{member.email}</h6>
-                <button onClick={this.handleOpenModal}>Edit Member</button>
+                    <div className="memberRowInfo"> 
+                        <h3 className="memberName info">{member.firstName}</h3><h3 className="info"> {member.lastName}</h3>  <h3 className="info">{member.dueDate}</h3> <h3 className="info">{member.phoneNumber}</h3> <h3 className="info">{member.email}</h3>
+                    </div>
+                    <div id="editMemberButtonContainer">
+                        <button id="editMemberButton" onClick={this.handleOpenModal}>Edit Member</button>
+                    </div>
                 <ReactModal 
                 isOpen={this.state.showModal} 
                 contentLabel="View Member Details"

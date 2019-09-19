@@ -26,6 +26,10 @@ class Header extends React.Component{
                             this.props.handleView('home')
                         }}>HOME</li>
 
+                         <li onClick={()=>{
+                            this.props.handleView('calendar')
+                        }}>CALENDAR</li>
+
                         <li onClick={()=>{
                             this.props.handleView('addMember')
                         }}>ADD MEMBER</li>
