@@ -6,8 +6,7 @@ class Member extends React.Component{
     constructor(){
         super()
         this.state={
-            showModal: false,
-            members: []
+            showModal: false
         }
 
         this.handleOpenModal = this.handleOpenModal.bind(this)
@@ -26,13 +25,15 @@ class Member extends React.Component{
         this.setState({
             showModal: false
         })
-        console.log("hello")
+  
     }
 
     render(){
         return(
-            <div id="memberRow">
-
+            <div>
+            {this.props.members.map((member, index)=>
+            <div id="memberRow" key={index}>
+                <h6>{member.firstName} {member.lastName}</h6>  <h6>{member.dueDate}</h6> <h6>{member.phoneNumber}</h6> <h6>{member.email}</h6>
                 <button onClick={this.handleOpenModal}>Edit Member</button>
                 <ReactModal 
                 isOpen={this.state.showModal} 
@@ -107,7 +108,8 @@ class Member extends React.Component{
             </div>
 
                 </ReactModal>
-            </div>
+            </div>)}
+        </div>
         )
     }
 }
