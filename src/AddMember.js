@@ -16,16 +16,16 @@ class AddMember extends React.Component{
             basic: '',
             silver: '',
             premium: '',
-            startDate: null,
-            endDate: null,
+            startDate: Date,
+            endDate: Date,
             notes: ''
         }
-    
+        this.handleChange = this.handleChange.bind(this)
     }
-    
-    
-    handleChange() {
-            this.props.handleChange()
+    handleChange(event){
+        this.setState({
+            [event.target.id]: event.target.value
+        })
     }
 
     handleSubmit(){
@@ -36,24 +36,24 @@ class AddMember extends React.Component{
         return(
             <div id="addMemberContainer">
                 <div id="formContainer">
-                    <form id="addMemberForm">
+                    <form id="addMemberForm" onSubmit={this.props.handleSubmit}>
                         <fieldset>
                             <legend>Member Information</legend>
-                                <input name="addMemberFirstName" type="text" id="addMemberFirstName"  className="addMemberInput" placeholder="First Name" required />
+                                <input name="firstName" value={this.state.firstName} onChange={this.handleChange} type="text" id="firstName"  className="addMemberInput" placeholder="First Name" required />
 
-                                <input name="addMemberLastName" type="text" id="addMemberLastName" className="addMemberInput" placeholder="Last Name" required />
+                                <input name="lastName" value={this.state.lastName} onChange={this.handleChange} type="text" id="lastName" className="addMemberInput" placeholder="Last Name" required />
 
-                                <input name="addMemberNumber" type="number" id="addMemberPhoneNumber" className="addMemberInput" placeholder="Phone Number" required />
+                                <input name="phoneNumber" value={this.state.phoneNumber} onChange={this.handleChange} type="number" id="phoneNumber" className="addMemberInput" placeholder="Phone Number" required />
 
-                                <input name="addMemberAddress" type="text" id="addMemberAddress" className="addMemberInput" placeholder="Address" required /><br />
+                                <input name="address" type="text" id="address" value={this.state.address} onChange={this.handleChange} className="addMemberInput" placeholder="Address" required /><br />
 
-                                <input name="addMemberCity" type="text" id="addMemberCity" className="addMemberInput" placeholder="City" required />
+                                <input name="city" value={this.state.city} onChange={this.handleChange} type="text" id="city" className="addMemberInput" placeholder="City" required />
 
-                                <input name="addMemberState" type="text" id="addMemberState" className="addMemberInput" placeholder="State" required />
+                                <input name="addMemberState" type="text" value={this.state.state} onChange={this.handleChange} id="state" className="addMemberInput" placeholder="State" required />
 
-                                <input name="addMemberZip" type="number" id="addMemberZip" className="addMemberInput" placeholder="Zip" required />
+                                <input name="addMemberZip" value={this.state.zip} onChange={this.handleChange} type="text" id="zip" className="addMemberInput" placeholder="Zip" required />
 
-                                <input name="addMemberEmail" type="email" id="addMemberEmailAddress" placeholder="Email" className="addMemberInput" required />                              
+                                <input name="addMemberEmail" value={this.state.email} onChange={this.handleChange} type="email" id="email" placeholder="Email" className="addMemberInput" required />                              
 
                                 <br />
 
@@ -62,14 +62,14 @@ class AddMember extends React.Component{
                                         <fieldset id="membershipInfo">
                                             <legend>Membership Information</legend>
 
-                                            <label id="basicLabel" className="addMemberLabel" htmlFor="addMemberCheckBoxBasicMembership">Basic</label>
-                                            <input type="checkbox" id="addMemberCheckBoxBasicMembership" className="addMemberInput addMemberCheckBox" />
+                                            <label id="basicLabel" className="addMemberLabel" htmlFor="basic">Basic</label>
+                                            <input type="checkbox" value={this.state.basic} onChange={this.handleChange} id="basic" className="addMemberInput addMemberCheckBox" />
 
-                                            <label id="silverLabel" className="addMemberLabel" htmlFor="addMemberCheckBoxSilverMembership">Silver</label>
-                                            <input name="addMemberSilver" type="checkbox" className="addMemberInput addMemberCheckBox" id="addMemberCheckBoxSilverMembership" />
+                                            <label id="silverLabel" className="addMemberLabel" htmlFor="silver">Silver</label>
+                                            <input name="addMemberSilver" type="checkbox" className="addMemberInput addMemberCheckBox" id="silver" value={this.state.silver} onChange={this.handleChange} />
 
-                                            <label id="Premium" className="addMemberLabel" htmlFor="addMemberCheckBoxPremiumMembership">Premium</label>
-                                            <input name="addMemberPremium" type="checkbox" id="addMemberCheckBoxPremiumMembership" className="addMemberInput addMemberCheckBox" /><br />
+                                            <label id="Premium" className="addMemberLabel" htmlFor="premium">Premium</label>
+                                            <input name="addMemberPremium" value={this.state.premium} onChange={this.handleChange} type="checkbox" id="premium" className="addMemberInput addMemberCheckBox" /><br />
 
                                             {/* may cause issues here */}
                                             <input name="addMemberStartDate" id="addMemberStartDate" className="addMemberInput addMemberDates" placeholder="Start Date" type="date" required />
@@ -78,7 +78,7 @@ class AddMember extends React.Component{
                                         </fieldset>
                                 
                                         <div id="bottomRow">
-                                            <textarea rows="10" name="addMemberNotes" id="addMemberNotes" className="addMemberInput" placeholder="Notes" />
+                                            <textarea rows="10" value={this.state.notes} onChange={this.handleChange} name="addMemberNotes" id="notes" className="addMemberInput" placeholder="Notes" />
                                         
                                             <input type="submit" id="addMemberSubmitButton" value="ADD MEMBER" />
 
