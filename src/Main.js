@@ -26,10 +26,10 @@ class Main extends React.Component{
     }
 
     fetchMembers = () => {
-        fetch('https://membershiptrackerbackend.herokuapp.com/members' //, {
-                // method: "GET",
-                // mode: "cors"
-            // }
+        fetch('http://localhost:3000/members', {
+                method: "GET",
+                mode: "cors"
+            }
             ).then(data => {
                 return data.json()
             })
@@ -41,7 +41,7 @@ class Main extends React.Component{
 
     handleCreate(createdData){
         // console.log(createdData)
-        fetch('https://membershiptrackerbackend.herokuapp.com/members', {
+        fetch('http://localhost:3000/members', {
             body: JSON.stringify(createdData),
             method: 'POST',
             headers: {

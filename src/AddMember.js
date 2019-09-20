@@ -16,8 +16,8 @@ class AddMember extends React.Component{
             basic: '',
             silver: '',
             premium: '',
-            startDate: undefined,
-            dueDate: undefined,
+            startDate: '',
+            dueDate: '',
             notes: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this)

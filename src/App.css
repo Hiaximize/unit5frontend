@@ -209,3 +209,115 @@ legend{
 }
 
 
+
+/* UPDATE MEMBER FORM */
+
+fieldset{
+  border-radius: 4px;
+}
+legend{
+  font-size: 24px;
+}
+
+#updateMemberContainer{
+  margin: 0 auto;
+  width: 75vw;
+  height: 90vh;
+}
+
+#formContainer{
+  margin: 20px auto;
+  width: 100%;
+  height: 75%;
+}
+
+.updateMemberInput{
+  margin: 10px;
+  font-size: 18px;
+  padding: 6px;
+  border-radius: 4px;
+}
+
+#updateBasicLabel{
+  margin-left: 10px;
+}
+
+#updateMemberNotes{
+  resize: none;
+  max-width: 100%;
+  min-width: 100%;
+  margin-top: 20px;
+}
+
+#updateMemberPicture{
+  border: 1px solid black;
+  height: 400px;
+  width: 400px;
+  margin-bottom: 8px;
+  margin-left: 100px;
+}
+
+#membershipInfo{
+  width: 96%;
+  border-radius: 4px;
+  margin-left: 8px;
+}
+
+#updateMemberAddress{
+  width: 300px;
+}
+
+#updateMemberDelete{
+  margin-left: 230px;
+  background-color: black;
+  color: red;
+  font-size: 20px;
+}
+
+#updateMemberEmailAddress{
+  width: 300px;
+}
+
+#updateMemberDates{
+  margin-left: 25px;
+}
+
+.updateMemberCheckBox{
+  margin-left: 10px;
+  font-size: 25px;
+}
+
+.updateMemberLabel{
+  margin-left: 25px;
+}
+
+#updateMemberSecondRow{
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+#updateMemberSubmitButton{
+  font-size: 35px;
+  padding: 5px;
+  width: 55%;
+  height: 60px;
+  margin-left: 40px;
+  margin-right: 4px;
+  background-color: green;
+  color: white;
+  border-radius: 5px;
+}
+
+#updateMemberCancelButton{
+  font-size: 35px;
+  padding: 5px;
+  width: 35%;
+  height: 60px;
+  margin-left: 4px;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+}
+
+

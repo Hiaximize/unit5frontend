@@ -7,6 +7,7 @@ class Member extends React.Component{
         super()
         this.state={
             showModal: false
+            
         }
 
         this.handleOpenModal = this.handleOpenModal.bind(this)
@@ -46,53 +47,53 @@ class Member extends React.Component{
                 
                     <div id="UpdateMemberContainer">
                 <div id="formContainer">
-                    <form id="addMemberForm">
+                    <form id="updateMemberForm">
                         <fieldset>
                             <legend>Member Information</legend>
-                                <input name="addMemberFirstName" type="text" id="addMemberFirstName"  className="addMemberInput" placeholder="First Name" required />
+                                <input name="updateMemberFirstName" type="text" id="updateMemberFirstName"  className="updateMemberInput" placeholder="First Name"  required />
 
-                                <input name="addMemberLastName" type="text" id="addMemberLastName" className="addMemberInput" placeholder="Last Name" required />
+                                <input name="updateMemberLastName" type="text" id="updateMemberLastName" className="updateMemberInput" placeholder="Last Name" required />
 
-                                <input name="addMemberNumber" type="number" id="addMemberPhoneNumber" className="addMemberInput" placeholder="Phone Number" required />
+                                <input name="updateMemberNumber" type="number" id="updateMemberPhoneNumber" className="updateMemberInput" placeholder="Phone Number" required />
 
-                                <input name="addMemberAddress" type="text" id="addMemberAddress" className="addMemberInput" placeholder="Address" required /><br />
+                                <input name="updateMemberAddress" type="text" id="updateMemberAddress" className="updateMemberInput" placeholder="Address" required /><br />
 
-                                <input name="addMemberCity" type="text" id="addMemberCity" className="addMemberInput" placeholder="City" required />
+                                <input name="updateMemberCity" type="text" id="updateMemberCity" className="updateMemberInput" placeholder="City" required />
 
-                                <input name="addMemberState" type="text" id="addMemberState" className="addMemberInput" placeholder="State" required />
+                                <input name="updateMemberState" type="text" id="updateMemberState" className="updateMemberInput" placeholder="State" required />
 
-                                <input name="addMemberZip" type="number" id="addMemberZip" className="addMemberInput" placeholder="Zip" required />
+                                <input name="updateMemberZip" type="number" id="updateMemberZip" className="updateMemberInput" placeholder="Zip" required />
 
-                                <input name="addMemberEmail" type="email" id="addMemberEmailAddress" placeholder="Email" className="addMemberInput" required />                              
+                                <input name="updateMemberEmail" type="email" id="updateMemberEmailAddress" placeholder="Email" className="updateMemberInput" required />                              
 
                                 <br />
 
-                                <div id="addMemberSecondRow">
+                                <div id="updateMemberSecondRow">
                                     <div id="leftHalfSecondRow">
                                         <fieldset id="membershipInfo">
-                                            <legend>Membership Information</legend>
+                                            <legend>Update Member</legend>
 
-                                            <label id="basicLabel" className="addMemberLabel" htmlFor="addMemberCheckBoxBasicMembership">Basic</label>
-                                            <input type="checkbox" id="addMemberCheckBoxBasicMembership" className="addMemberInput addMemberCheckBox" />
+                                            <label id="basicLabel" className="updateMemberLabel" htmlFor="updateMemberCheckBoxBasicMembership">Basic</label>
+                                            <input type="checkbox" id="updateMemberCheckBoxBasicMembership" className="updateMemberInput updateMemberCheckBox" />
 
-                                            <label id="silverLabel" className="addMemberLabel" htmlFor="addMemberCheckBoxSilverMembership">Silver</label>
-                                            <input name="addMemberSilver" type="checkbox" className="addMemberInput addMemberCheckBox" id="addMemberCheckBoxSilverMembership" />
+                                            <label id="silverLabel" className="updateMemberLabel" htmlFor="updateMemberCheckBoxSilverMembership">Silver</label>
+                                            <input name="updateMemberSilver" type="checkbox" className="updateMemberInput updateMemberCheckBox" id="updateMemberCheckBoxSilverMembership" />
 
-                                            <label id="Premium" className="addMemberLabel" htmlFor="addMemberCheckBoxPremiumMembership">Premium</label>
-                                            <input name="addMemberPremium" type="checkbox" id="addMemberCheckBoxPremiumMembership" className="addMemberInput addMemberCheckBox" /><br />
+                                            <label id="Premium" className="updateMemberLabel" htmlFor="updateMemberCheckBoxPremiumMembership">Premium</label>
+                                            <input name="updateMemberPremium" type="checkbox" id="updateMemberCheckBoxPremiumMembership" className="updateMemberInput updateMemberCheckBox" /><br />
 
                                             {/* may cause issues here */}
-                                            <input name="addMemberStartDate" id="addMemberStartDate" className="addMemberInput addMemberDates" placeholder="Start Date" type="date" required />
+                                            <input name="updateMemberStartDate" id="updateMemberStartDate" className="updateMemberInput updateMemberDates" placeholder="Start Date" type="date" required />
 
-                                            <input name="addMemberDueDate" id="addMemberDueDate" className="addMemberInput addMemberDates" placeholder="Due Date" type="date" required />
+                                            <input name="updateMemberDueDate" id="updateMemberDueDate" className="updateMemberInput updateMemberDates" placeholder="Due Date" type="date" required />
                                         </fieldset>
                                 
                                         <div id="bottomRow">
-                                            <textarea rows="10" name="addMemberNotes" id="addMemberNotes" className="addMemberInput" placeholder="Notes" />
+                                            <textarea rows="10" name="updateMemberNotes" id="updateMemberNotes" className="updateMemberInput" placeholder="Notes" />
                                         
-                                            <input type="submit" id="addMemberSubmitButton" value="UPDATE MEMBER" />
+                                            <input type="submit" id="updateMemberSubmitButton" value="UPDATE MEMBER" />
 
-                                            <button id="addMemberCancelButton" onClick={
+                                            <button id="updateMemberCancelButton" onClick={
                                                 this.handleCloseModal
                                             }>CANCEL</button>
                                             
@@ -100,9 +101,9 @@ class Member extends React.Component{
 
                                     </div>
 
-                                    <div id="addMemberProfilePhotoContainer">
-                                        <img src="placeholder.png" id="addMemberPicture" alt="profileImage"/>
-                                        
+                                    <div id="updateMemberProfilePhotoContainer">
+                                        <img src="placeholder.png" id="updateMemberPicture" alt="profileImage"/>
+                                        <button id="updateMemberDelete">Delete Member</button>
                                     </div>
                                 </div>
                                 
