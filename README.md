@@ -16,5 +16,16 @@ Create
 Read, Update, Delete
   Viewing more details about a member when you click edit details which brings up a modal. Inside the modal is the option to edit and delete as well as just shows you only that individual members information
   
+### Technology
+MERN stack is what I used to build this project
 
-  
+### Wireframes
+
+![wireframe](https://raw.githubusercontent.com/Hiaximize/unit5frontend/master/public/unit5%20Wireframes.png)
+
+### Struggles
+
+1. In the beginning I was pushing data to a DB collection called Members and trying to pull from one called Member
+2. Getting the heroku hosted app to properly store information to the database
+
+I bounced around too much from django, mern and nerds. I started thinking I wanted to be really good at something instead of trying to learn new things like django. 
