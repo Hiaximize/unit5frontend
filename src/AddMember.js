@@ -16,10 +16,11 @@ class AddMember extends React.Component{
             basic: '',
             silver: '',
             premium: '',
-            startDate: Date,
-            endDate: Date,
+            startDate: undefined,
+            dueDate: undefined,
             notes: ''
         }
+        this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
     }
     handleChange(event){
@@ -28,15 +29,19 @@ class AddMember extends React.Component{
         })
     }
 
-    handleSubmit(){
-        this.props.handleSubmit()
+    handleSubmit(event){
+        event.preventDefault()
+        console.log("im in handle submit")
+        console.log(this.props)
+        console.log(this.state)
+        this.props.handleCreate(this.state)
     }
-    
+
     render(){
         return(
             <div id="addMemberContainer">
                 <div id="formContainer">
-                    <form id="addMemberForm" onSubmit={this.props.handleSubmit}>
+                    <form id="addMemberForm" onSubmit={this.handleSubmit}>
                         <fieldset>
                             <legend>Member Information</legend>
                                 <input name="firstName" value={this.state.firstName} onChange={this.handleChange} type="text" id="firstName"  className="addMemberInput" placeholder="First Name" required />
