@@ -17,12 +17,8 @@ class Main extends React.Component{
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleView = this.handleView.bind(this)
-        // this.handleSubmit = this.handleSubmit.bind(this)
         this.handleCreate = this.handleCreate.bind(this)
-        this.handleUpdate = this.handleUpdate.bind(this)
-        // this.handleDelete = this.handleDelete.bind(this)
-
-        
+        this.handleUpdate = this.handleUpdate.bind(this)     
     }
 
     fetchMembers = () => {
@@ -38,7 +34,6 @@ class Main extends React.Component{
             }))
     }
 
-
     handleCreate(createdData){
         // console.log(createdData)
         fetch('http://localhost:3000/members', {
@@ -47,7 +42,7 @@ class Main extends React.Component{
             headers: {
                 'Accept': 'application/json, text/plain, */*', 
                 'Content-Type': 'application/json'
-                // mode: 'cors'
+            
             } 
         }).then(createdMember=>{
             // console.log(createdMember)
@@ -78,24 +73,7 @@ class Main extends React.Component{
             this.fetchMembers()
         })
     }
-
-    // handleDelete(_id){
-    //     fetch(`/members/${_id}`, {
-    //         method: "DELETE",
-    //         headers: {
-    //             "Accept": "application/json, text/plain, */*",
-    //             "Content-Type": "application/json"
-    //         }
-    //     }).then(deletedMember => {
-    //         const members = prevState.members.filter(member => member._id !== _id)
-    //         return {members}
-    //     })
-    // }
    
-    // handleSubmit(event){
-    //     event.preventDefault()
-    //     this.handleCreate(this.state)
-    // }
 
     handleChange(event){
         this.setState({
@@ -144,7 +122,8 @@ class Main extends React.Component{
                 members={this.state.members} 
                 view={this.state.view}
                 handleChange={this.handleChange}
-                handleView={this.handleView}/> : ''}
+                handleView={this.handleView}
+                handleDelete={this.handleDelete}/> : ''}
 
                 {this.state.view.page==='calendar' ?
                 <Calendar 

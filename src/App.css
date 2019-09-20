@@ -268,10 +268,16 @@ legend{
 }
 
 #updateMemberDelete{
-  margin-left: 230px;
+  margin-left: 192px;
+  width: 40%;
+  padding: 6px;
   background-color: black;
   color: red;
   font-size: 20px;
+  list-style: none;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 #updateMemberEmailAddress{

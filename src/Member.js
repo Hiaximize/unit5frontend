@@ -12,9 +12,18 @@ class Member extends React.Component{
 
         this.handleOpenModal = this.handleOpenModal.bind(this)
         this.handleCloseModal = this.handleCloseModal.bind(this)
-        
+        this.handleChange = this.handleChange.bind(this)
+    }
+
+    handleChange(event){
+        this.setState({
+            [event.target.id]: event.target.value
+        })
     }
     
+    handleDelete(){
+        this.props.handleDelete()
+    }    
 
     handleOpenModal(){
         this.setState({
@@ -43,11 +52,13 @@ class Member extends React.Component{
                 <ReactModal 
                 isOpen={this.state.showModal} 
                 contentLabel="View Member Details"
-                ariaHideApp={false}>
+                ariaHideApp={false}
+                members={this.props.members}
+                handleChange={this.handleChange}>
                 
                     <div id="UpdateMemberContainer">
                 <div id="formContainer">
-                    <form id="updateMemberForm">
+                    <form id="updateMemberForm" onSubmit={this.updateSubmit}>
                         <fieldset>
                             <legend>Member Information</legend>
                                 <input name="updateMemberFirstName" type="text" id="updateMemberFirstName"  className="updateMemberInput" placeholder="First Name"  required />
@@ -103,7 +114,7 @@ class Member extends React.Component{
 
                                     <div id="updateMemberProfilePhotoContainer">
                                         <img src="placeholder.png" id="updateMemberPicture" alt="profileImage"/>
-                                        <button id="updateMemberDelete">Delete Member</button>
+                                        <li onClick={this.props.handleDelete} id="updateMemberDelete">Delete Member</li>
                                     </div>
                                 </div>
                                 

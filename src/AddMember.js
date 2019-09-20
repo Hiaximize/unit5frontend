@@ -32,8 +32,10 @@ class AddMember extends React.Component{
     handleSubmit(event){
         event.preventDefault()
         console.log("im in handle submit")
-        console.log(this.props)
-        console.log(this.state)
+        // const newMember = {
+        //     firstName: this.props.firstName,
+        //     lastName: this.props.lastName
+        // }
         this.props.handleCreate(this.state)
     }
 
