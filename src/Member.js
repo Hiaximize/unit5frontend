@@ -36,7 +36,7 @@ class Member extends React.Component{
                     <div className="memberRowInfo"> 
                         <h3 className="memberName info">{member.firstName}  {member.lastName}</h3> <h3 className="date info">{member.dueDate}</h3> <h3 className="phoneNumber info">{member.phoneNumber}</h3> <h3 className="email info">{member.email}</h3>
                     </div>
-                    <div id="editMemberButtonContainer">
+                    <div id="memberButtonContainer">
                         <button id="editMemberButton" onClick={this.handleOpenModal}>Edit Member</button>
                     </div>
                 <ReactModal 

@@ -17,7 +17,7 @@ class Main extends React.Component{
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleView = this.handleView.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
+        // this.handleSubmit = this.handleSubmit.bind(this)
         this.handleCreate = this.handleCreate.bind(this)
         this.handleUpdate = this.handleUpdate.bind(this)
         // this.handleDelete = this.handleDelete.bind(this)
@@ -26,10 +26,11 @@ class Main extends React.Component{
     }
 
     fetchMembers = () => {
-        fetch('https://membershiptrackerbackend.herokuapp.com/members', {
-                method: "GET",
-                mode: "cors"
-            }).then(data => {
+        fetch('http://localhost:3000/members' //, {
+                // method: "GET",
+                // mode: "cors"
+            // }
+            ).then(data => {
                 return data.json()
             })
             .then(json => this.setState({
@@ -38,24 +39,30 @@ class Main extends React.Component{
     }
 
 
-    handleCreate(createdMember){
-        fetch('https://membershiptrackerbackend.herokuapp.com/members', {
-            body: JSON.stringify(createdMember),
-            method: "POST",
+    handleCreate(createdData){
+        console.log(createdData)
+        fetch('http://localhost:3000/members', {
+            body: JSON.stringify(createdData),
+            method: 'POST',
             headers: {
-                "Accept": "application/json, text/plain, */*", 
-                "Content-Type": "application/json"
+                'Accept': 'application/json, text/plain, */*', 
+                'Content-Type': 'application/json'
+                // mode: 'cors'
             } 
         }).then(createdMember=>{
+            console.log(createdMember)
             return createdMember.json()
-        }).then(jsonMember => {
+
+           }).then(jsonMember => {
+               console.log(jsonMember)
+               this.props.handleView('home')
             this.setState(prevState=>{
+                
                 prevState.members.push(jsonMember)
-                this.props.handleView('home')
+                this.fetchMembers()
                 return { members: prevState.members}
-                // this.fetchMembers()
             })
-        })
+        }).catch(error => {console.log(error)})
     }
 
     handleUpdate(updatedMember){
@@ -85,10 +92,10 @@ class Main extends React.Component{
     //     })
     // }
    
-    handleSubmit(event){
-        event.preventDefault()
-        this.handleCreate(this.state)
-    }
+    // handleSubmit(event){
+    //     event.preventDefault()
+    //     this.handleCreate(this.state)
+    // }
 
     handleChange(event){
         this.setState({
