@@ -54,7 +54,9 @@ class Main extends React.Component{
                 startDate: createdData.addMemberStartDate,
                 dueDate: createdData.addMemberDueDate
             }}).then(createdData => {
-            console.log("this is line 55", createdData)
+                this.fetchMembers()
+                this.handleView('home')
+                console.log("this is line 55", createdData)
         }).catch(error=>{
             console.log(error)
         })
@@ -82,8 +84,6 @@ class Main extends React.Component{
     //             return { members: prevState.members}
     //         })
     //     }).catch(error => {console.log(error)})
-            this.fetchMembers()
-            this.handleView('home')
     }
 
     handleUpdate(updatedMember){
