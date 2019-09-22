@@ -4,6 +4,7 @@ import MyStickyFooter from './StickyFooter.js'
 import InfoContainer from './InfoContainer.js'
 import AddMember from './AddMember.js'
 import Calendar from './Calendar.js'
+import axios from 'axios'
 
 class Main extends React.Component{
     constructor(props){
@@ -22,7 +23,8 @@ class Main extends React.Component{
     }
 
     fetchMembers = () => {
-        fetch('http://localhost:3000/members', {
+        fetch('https://membershiptrackerbackend.herokuapp.com/members', {
+        // fetch('http://localhost:3000/members', {
                 method: "GET",
                 mode: "cors"
             }
@@ -35,35 +37,60 @@ class Main extends React.Component{
     }
 
     handleCreate(createdData){
+        console.log(createdData)
+        axios({
+            method: 'post',
+            url: 'https://membershiptrackerbackend.herokuapp.com/members',
+            // url: 'http://localhost:3000/members',
+            data:{
+                firstName: createdData.firstName,
+                lastName: createdData.lastName,
+                phoneNumber: createdData.phoneNumber,
+                address: createdData.address,
+                city: createdData.city,
+                state: createdData.state,
+                zip: createdData.zip,
+                email: createdData.email,
+                startDate: createdData.addMemberStartDate,
+                dueDate: createdData.addMemberDueDate
+            }}).then(createdData => {
+            console.log("this is line 55", createdData)
+        }).catch(error=>{
+            console.log(error)
+        })
         // console.log(createdData)
-        fetch('http://localhost:3000/members', {
-            body: JSON.stringify(createdData),
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json, text/plain, */*', 
-                'Content-Type': 'application/json'
+    //     fetch('http://localhost:3000/members', {
+    //         body: JSON.stringify(createdData),
+    //         method: 'POST',
+    //         mode: 'cors',
+    //         headers: {
+    //             'Accept': 'application/json, text/plain, */*', 
+    //             'Content-Type': 'application/json'
             
-            } 
-        }).then(createdMember=>{
-            // console.log(createdMember)
-            return createdMember.json()
+    //         } 
+    //     }).then(createdMember=>{
+    //         console.log(createdMember)
+    //         return createdMember.json()
 
-           }).then(jsonMember => {
-            //    console.log(jsonMember)
-               this.handleView('home') //taking out props 
-            this.setState(prevState=>{
+    //        }).then(jsonMember => {
+    //         //    console.log(jsonMember)
+    //            this.handleView('home') //taking out props 
+    //         this.setState(prevState=>{
                 
-                prevState.members.push(jsonMember)
-                this.fetchMembers()
-                return { members: prevState.members}
-            })
-        }).catch(error => {console.log(error)})
+    //             prevState.members.push(jsonMember)
+    //             this.fetchMembers()
+    //             return { members: prevState.members}
+    //         })
+    //     }).catch(error => {console.log(error)})
+            this.fetchMembers()
+            this.handleView('home')
     }
 
     handleUpdate(updatedMember){
         fetch(`/members/${updatedMember._id}`, {
             body: JSON.stringify(updatedMember),
             method: "PUT",
+            mode: 'cors',
             headers: {
                 "Accept": "application/json, text/plain, */*", 
                 "Content-Type": "application/json"
@@ -137,7 +164,8 @@ class Main extends React.Component{
                 handleCreate={this.handleCreate} 
                 view={this.state.view}
                 handleChange={this.handleChange}
-                handleView={this.handleView}/> : ''}
+                handleView={this.handleView}
+                members={this.state.memers}/> : ''}
 
                 <MyStickyFooter />
             

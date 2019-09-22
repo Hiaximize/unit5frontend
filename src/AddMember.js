@@ -32,10 +32,8 @@ class AddMember extends React.Component{
     handleSubmit(event){
         event.preventDefault()
         console.log("im in handle submit")
-        // const newMember = {
-        //     firstName: this.props.firstName,
-        //     lastName: this.props.lastName
-        // }
+        console.log(this.props)
+        console.log(this.state)
         this.props.handleCreate(this.state)
     }
 
@@ -79,9 +77,11 @@ class AddMember extends React.Component{
                                             <input name="addMemberPremium" value={this.state.premium} onChange={this.handleChange} type="checkbox" id="premium" className="addMemberInput addMemberCheckBox" /><br />
 
                                             {/* may cause issues here */}
-                                            <input name="addMemberStartDate" id="addMemberStartDate" className="addMemberInput addMemberDates" placeholder="Start Date" type="date" required />
+                                            <input name="addMemberStartDate" id="addMemberStartDate" className="addMemberInput addMemberDates" placeholder="Start Date" type="date" required 
+                                            onChange={this.handleChange}/>
 
-                                            <input name="addMemberDueDate" id="addMemberDueDate" className="addMemberInput addMemberDates" placeholder="Due Date" type="date" required />
+                                            <input name="addMemberDueDate" id="addMemberDueDate" className="addMemberInput addMemberDates" placeholder="Due Date" type="date" required 
+                                            onChange={this.handleChange}/>
                                         </fieldset>
                                 
                                         <div id="bottomRow">
