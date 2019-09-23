@@ -7,7 +7,7 @@ class MyStickyFooter extends React.Component{
             
             <StickyFooter className="stickyFooter"
             bottomThreshold={50}
-            normalStyles={{borderLeft: "25px solid transparent", backgroundColor: "#546186", padding: "1rem", zIndex: "2"}}
+            normalStyles={{borderLeft: "25px solid transparent", backgroundColor: "#575757", padding: "15px", zIndex: "2"}}
             stickyStyles={{display: "none"}}>
                 <div id="footerContainer">
                     <ul id="footer">

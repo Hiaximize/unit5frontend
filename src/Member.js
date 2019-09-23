@@ -15,6 +15,10 @@ class Member extends React.Component{
         this.handleChange = this.handleChange.bind(this)
     }
 
+    handleUpdate(){
+        this.props.handleUpdate()
+    }
+
     handleChange(event){
         this.setState({
             [event.target.id]: event.target.value
@@ -35,7 +39,6 @@ class Member extends React.Component{
         this.setState({
             showModal: false
         })
-  
     }
 
     render(){
@@ -44,12 +47,13 @@ class Member extends React.Component{
             {this.props.members.map((member, index)=>
             <div id="memberRow" key={index}>
                     <div className="memberRowInfo"> 
-                        <h3 className="memberName info">{member.firstName}  {member.lastName}</h3> <h3 className="date info">{member.dueDate}</h3> <h3 className="phoneNumber info">{member.phoneNumber}</h3> <h3 className="email info">{member.email}</h3>
+                        <h3 id={index} className="memberName info">{member.firstName}{index}  {member.lastName}</h3> <h3 className="date info">{member.dueDate}</h3> <h3 className="phoneNumber info">{member.phoneNumber}</h3> <h3 className="email info">{member.email}</h3>
                     </div>
                     <div id="memberButtonContainer">
                         <button id="editMemberButton" onClick={this.handleOpenModal}>Edit Member</button>
                     </div>
-                <ReactModal 
+                <ReactModal className="modal"
+                handleUpdate={this.props.handleUpdate} 
                 isOpen={this.state.showModal} 
                 contentLabel="View Member Details"
                 ariaHideApp={false}
@@ -58,7 +62,7 @@ class Member extends React.Component{
                 
                     <div id="UpdateMemberContainer">
                 <div id="formContainer">
-                    <form id="updateMemberForm" onSubmit={this.updateSubmit}>
+                    <form id="updateMemberForm" onSubmit={this.props.handleUpdate}>
                         <fieldset>
                             <legend>Member Information</legend>
                                 <input name="updateMemberFirstName" type="text" id="updateMemberFirstName"  className="updateMemberInput" placeholder="First Name"  required />

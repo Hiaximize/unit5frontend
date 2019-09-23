@@ -6,6 +6,9 @@ class InfoContainer extends React.Component{
         super(props)
         this.handleDelete = this.handleDelete.bind(this)
     }
+    handleUpdate(){
+        this.props.handleUpdate()
+    }
     
     handleChange(){
         this.props.handleChange()
@@ -37,7 +40,9 @@ class InfoContainer extends React.Component{
         return(
             <div id="infoContainer">
         
-                <Member members={this.props.members}
+                <Member
+                handleUpdate={this.props.handleUpdate} 
+                members={this.props.members}
                 handleDelete={this.handleDelete}/>
                              
             </div>
