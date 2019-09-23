@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap');
+
+body{
+  background-color: #454545;
+}
 /* HEADER STYLING */
 .app{
   margin: 0;
@@ -10,9 +15,14 @@
   margin: 0;
   display: flex;
   justify-content: space-between;
-  background-color: blue;
+  background-color: #a2a6ab;
   padding: 8px;
+  font-family: 'Be Vietnam', sans-serif;
+  font-size: 24px;
+  height: 50px;
+  align-items: center;
 }
+
 #profileNameAndImage{
   display: inline-block;
   border-radius: 100%;
@@ -26,6 +36,12 @@
   display: inline;
   margin-right: 25px;
   cursor: pointer;
+  color: #4d6776;
+  letter-spacing: 2px;
+  margin-top: 10px;
+}
+
+#headerLinksContainer li:hover{
   color: white;
 }
 
@@ -37,6 +53,7 @@
   display: flex;
   justify-content: space-around;
   /* margin-top: 40px; */
+  background-color: #575757;
 }
 
 #footer li {
@@ -44,17 +61,25 @@
   margin-right: 20px;
   font-size: 18px;
 }
+#footer a {
+  text-decoration: none;
+  color: white;
+}
 
 
 /* INFO CONTAINER */
 
 #infoContainer{
+  border-radius: 5px;
   overflow-y: scroll;
-  border: 1px solid black;
   width: 96%;
   height: 80vh;
   /* height: 100%; */
   margin: 15px auto;
+  /* box-shadow: 5px 10px #a2a6ab; */
+  color: white;
+  letter-spacing: 1px;
+  background-color: #7591b0;
 }
 
 #infoContainer::-webkit-scrollbar{
@@ -68,7 +93,7 @@
   justify-content: space-between;
   width: 100%;
   height: 60px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   align-items: center;
 }
 .memberName{
@@ -109,6 +134,9 @@
 /* ADD MEMBER PAGE*/
 fieldset{
   border-radius: 4px;
+  background-color: #7591b0;
+  color: white;
+  font-weight: 600;
 }
 legend{
   font-size: 24px;
@@ -116,7 +144,7 @@ legend{
 
 #addMemberContainer{
   margin: 0 auto;
-  width: 75vw;
+  width: 85vw;
   height: 90vh;
 }
 
@@ -149,7 +177,7 @@ legend{
   height: 400px;
   width: 400px;
   margin-bottom: 8px;
-  margin-left: 100px;
+  margin-left: 50px;
 }
 
 #membershipInfo{
@@ -158,12 +186,12 @@ legend{
   margin-left: 8px;
 }
 
-#addMemberAddress{
-  width: 300px;
+#address{
+  width: 350px;
 }
 
-#addMemberEmailAddress{
-  width: 300px;
+#email{
+  width: 350px;
 }
 
 #addMemberDates{
@@ -224,13 +252,23 @@ legend{
   width: 75vw;
   height: 90vh;
 }
+/* .modal{
+    background-color: #454545;
+} */
+.overlay{
+    background-color: #454545;
+}
 
 #formContainer{
   margin: 20px auto;
   width: 100%;
   height: 75%;
+  color: #454545;
+  /* background-color: #454545; */
 }
-
+.updateMemberLegend{
+  color:#454545;
+}
 .updateMemberInput{
   margin: 10px;
   font-size: 18px;
@@ -326,4 +364,7 @@ legend{
   border-radius: 5px;
 }
 
-
+#calendar{
+  height: 100vh;
+  text-align: center;
+}

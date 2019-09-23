@@ -60,30 +60,20 @@ class Main extends React.Component{
         }).catch(error=>{
             console.log(error)
         })
-        // console.log(createdData)
-    //     fetch('http://localhost:3000/members', {
-    //         body: JSON.stringify(createdData),
-    //         method: 'POST',
-    //         mode: 'cors',
-    //         headers: {
-    //             'Accept': 'application/json, text/plain, */*', 
-    //             'Content-Type': 'application/json'
-            
-    //         } 
-    //     }).then(createdMember=>{
-    //         console.log(createdMember)
-    //         return createdMember.json()
+    }
 
-    //        }).then(jsonMember => {
-    //         //    console.log(jsonMember)
-    //            this.handleView('home') //taking out props 
-    //         this.setState(prevState=>{
-                
-    //             prevState.members.push(jsonMember)
-    //             this.fetchMembers()
-    //             return { members: prevState.members}
-    //         })
-    //     }).catch(error => {console.log(error)})
+    updateMembers = (updatedMember) => {
+        console.log(updatedMember)
+        axios({
+            method: 'put',
+            url:`https://membershiptrackerbackend.herokuapp.com/${updatedMember._id}`
+        }).then(updatedMember => {
+            this.fetchMembers()
+            console.log("inside promise", updatedMember)
+            this.handleView('home')
+        }).catch(error=>{
+            console.log(error)
+        })
     }
 
     handleUpdate(updatedMember){
@@ -146,6 +136,7 @@ class Main extends React.Component{
 
                 {this.state.view.page==='home' ?
                 <InfoContainer
+                handleUpdate={this.handleUpdate}
                 members={this.state.members} 
                 view={this.state.view}
                 handleChange={this.handleChange}
