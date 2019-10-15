@@ -23,11 +23,4 @@ MERN stack is what I used to build this project
 
 ![wireframe](https://raw.githubusercontent.com/Hiaximize/unit5frontend/master/public/unit5%20Wireframes.png)
 
-### Struggles
 
-1. In the beginning I was pushing data to a DB collection called Members and trying to pull from one called Member
-2. Getting the heroku hosted app to properly store information to the database
-3. My computer is on the way out the door and is very slow, that coupled with the length of time for each save to render the changes made the prject very slow going
-4. Being too stubborn and asking for help too late
-
-I bounced around too much from django, mern and nerds. I started thinking I wanted to be really good at something instead of trying to learn new things like django. 
