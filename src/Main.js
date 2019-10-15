@@ -66,7 +66,7 @@ class Main extends React.Component{
         console.log(updatedMember)
         axios({
             method: 'put',
-            url:`https://membershiptrackerbackend.herokuapp.com/${updatedMember._id}`
+            url:`https://membershiptrackerbackend.herokuapp.com/members/${updatedMember._id}`
         }).then(updatedMember => {
             this.fetchMembers()
             console.log("inside promise", updatedMember)

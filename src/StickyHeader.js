@@ -8,11 +8,11 @@ class Header extends React.Component{
            
             <div id="header">
               
-                <img src="../public/finalProjectLogo.png" alt="your Logo"></img>
+                <img src="finalProjectLogo.png" alt="your Logo"></img>
             
                 <div id="profileNameAndImage">
                     
-                    <img id="profileImage" src="#" alt="profile pic"></img>
+                    <img id="profileImage" src="profilePicPlaceholder.png" alt="profile pic"></img>
                 </div>
                 
             </div>

@@ -3,6 +3,9 @@
 body{
   background-color: #454545;
 }
+li{
+  list-style: none;
+}
 /* HEADER STYLING */
 .app{
   margin: 0;
@@ -98,19 +101,29 @@ body{
 }
 .memberName{
   width: 250px;
-  border-right: 1px solid blue;
+  align-self: center;
+  border-right: 1px solid #4d6776;
 }
 .phoneNumber{
   width: 150px;
-  border-right: 1px solid blue;
+  text-align: center;
+  align-self: center;
+  border-right: 1px solid #4d6776;
 }
 .email{
   width: 250px;
-  border-right: 1px solid blue;
+  align-self: center;
+  border-right: 1px solid #4d6776;
+}
+.membershipType{
+  width: 150px;
+  align-self: center;
+  border-right: 1px solid #4d6776;
 }
 .date{
   width: 300px;
-  border-right: 1px solid blue;
+  align-self: center;
+  border-right: 1px solid #4d6776;
 }
 .memberRowInfo{
   display: flex;
@@ -128,6 +141,7 @@ body{
   text-align: center;
 }
 .memberName{
+  align-self: center;
   margin-left: 20px;
 }
 
