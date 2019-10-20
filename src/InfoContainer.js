@@ -6,8 +6,8 @@ class InfoContainer extends React.Component{
         super(props)
         this.handleDelete = this.handleDelete.bind(this)
     }
-    handleUpdate(){
-        this.props.handleUpdate()
+    updateMember(){
+        this.props.updateMember()
     }
     
     handleChange(){

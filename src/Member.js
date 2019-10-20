@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactModal from 'react-modal'
+import Moment from 'react-moment'
 
 
 class Member extends React.Component{
@@ -42,12 +43,14 @@ class Member extends React.Component{
     }
 
     render(){
+        
         return(
             <div>
             {this.props.members.map((member, index)=>
             <div id="memberRow" key={index}>
+                
                     <div className="memberRowInfo"> 
-                        <li id={index+1} className="memberName info">{index+1} {member.firstName} {member.lastName}</li> <li className="date info">{member.dueDate}</li> <li className="phoneNumber info">{member.phoneNumber}</li> <li className="email info">{member.email}</li> <li className="membershipType">membershipType</li>
+                        <li id={index+1} className="index_name memberName info"><span id="indexNumber">{index+1}</span> <span>{member.firstName} {member.lastName}</span></li> <li id="date" className="date info"><Moment format="YYYY/MM/DD">{member.dueDate}</Moment></li> <li className="phoneNumber info">{member.phoneNumber}</li> <li className="email info">{member.email}</li> <li className="membershipType">membershipType</li>
                     </div>
                     <div id="memberButtonContainer">
                         <button id="editMemberButton" onClick={this.handleOpenModal}>Edit Member</button>
@@ -100,7 +103,8 @@ class Member extends React.Component{
                                             <input name="updateMemberPremium" type="checkbox" id="updateMemberCheckBoxPremiumMembership" className="updateMemberInput updateMemberCheckBox" /><br />
 
                                             {/* may cause issues here */}
-                                            <input name="updateMemberStartDate" id="updateMemberStartDate" className="updateMemberInput updateMemberDates" placeholder="Start Date" type="date" required />
+                                            <label htmlFor="updateMemberStartDate">Start Date</label>
+                                            <input name="updateMemberStartDate" id="updateMemberStartDate" className="updateMemberInput updateMemberDates" placeholder="Start Date" type="date" />
 
                                             <input name="updateMemberDueDate" id="updateMemberDueDate" className="updateMemberInput updateMemberDates" placeholder="Due Date" type="date" required />
                                         </fieldset>

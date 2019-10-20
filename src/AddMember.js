@@ -77,10 +77,12 @@ class AddMember extends React.Component{
                                             <input name="addMemberPremium" value={this.state.premium} onChange={this.handleChange} type="checkbox" id="premium" className="addMemberInput addMemberCheckBox" /><br />
 
                                             {/* may cause issues here */}
-                                            <input name="addMemberStartDate" id="addMemberStartDate" className="addMemberInput addMemberDates" placeholder="Start Date" type="date" required 
+                                            <label htmlFor="addMemberStartDate">Start Date</label>
+                                            <input name="addMemberStartDate" id="addMemberStartDate" className="addMemberInput addMemberDates" placeholder="Start Date" type="date"  
                                             onChange={this.handleChange}/>
 
-                                            <input name="addMemberDueDate" id="addMemberDueDate" className="addMemberInput addMemberDates" placeholder="Due Date" type="date" required 
+                                            <p id="dueDate"></p>
+                                            <input name="addMemberDueDate" id="addMemberDueDate" className="addMemberInput addMemberDates" placeholder="Due Date" type="date"  
                                             onChange={this.handleChange}/>
                                         </fieldset>
                                 
