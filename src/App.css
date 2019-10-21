@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap');
 
+html{
+  min-width: 700px;
+}
 body{
   background-color: #454545;
+}
+li{
+  list-style: none;
 }
 /* HEADER STYLING */
 .app{
@@ -11,7 +17,10 @@ body{
 .app::-webkit-scrollbar{
   display: none;
 }
-#header{
+
+
+/* HEADER STYLING */
+#header {
   margin: 0;
   display: flex;
   justify-content: space-between;
@@ -23,15 +32,26 @@ body{
   align-items: center;
 }
 
-#profileNameAndImage{
+#profileNameAndImage {
   display: inline-block;
-  border-radius: 100%;
-  border: 1px solid black;
   height: 50px;
   width: 50px;
 }
 
-/* HEADER STYLING */
+#profileImage {
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+}
+#leftSide{
+  height: 50px;
+  width: 50px;
+}
+#logoImg{
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
 #headerLinksContainer li{
   display: inline;
   margin-right: 25px;
@@ -93,24 +113,45 @@ body{
   justify-content: space-between;
   width: 100%;
   height: 60px;
-  /* border: 1px solid black; */
   align-items: center;
 }
 .memberName{
   width: 250px;
-  border-right: 1px solid blue;
+  border: 1px solid black;
+  align-self: center;
+  /* border-right: 1px solid #4d6776; */
+}
+.index_name{
+  display: flex;
+  justify-content: flex-start;
+}
+#name{
+  text-align: center;
+  margin-left: 25px;
 }
 .phoneNumber{
-  width: 150px;
-  border-right: 1px solid blue;
+  width: 110px;
+  text-align: center;
+  align-self: center;
+  border: 1px solid yellow;
+  /* border-right: 1px solid #4d6776; */
 }
 .email{
+  border: 1px solid green;
   width: 250px;
-  border-right: 1px solid blue;
+  align-self: center;
+  /* border-right: 1px solid #4d6776; */
+}
+.membershipType{
+  width: 150px;
+  align-self: center;
+  /* border-right: 1px solid #4d6776; */
 }
 .date{
-  width: 300px;
-  border-right: 1px solid blue;
+  align-self: center;
+  width: 110px;
+  border: 1px solid gold;
+  /* border-right: 1px solid #4d6776; */
 }
 .memberRowInfo{
   display: flex;
@@ -128,6 +169,7 @@ body{
   text-align: center;
 }
 .memberName{
+  align-self: center;
   margin-left: 20px;
 }
 

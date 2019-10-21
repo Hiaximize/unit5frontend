@@ -1,6 +1,4 @@
 import React from 'react'
-// import StickyHeader from 'react-sticky-header'
-// import 'react-sticky-header/styles/css'
 
 class Header extends React.Component{
     
@@ -16,7 +14,7 @@ class Header extends React.Component{
            
             <div id="header">
                 <div id="leftSide">
-                    <img src="#" alt="your Logo"></img>
+                    <img id="logoImg" src="logoPlaceholder.png" alt="your Logo"></img>
                 </div>
 
                 <div id="headerLinksContainer">
@@ -38,7 +36,7 @@ class Header extends React.Component{
                 </div>   
 
                 <div id="profileNameAndImage">                    
-                    <img id="profileImage" src="#" alt="profile pic"></img>
+                    <img id="profileImage" src="placeholder.png" alt="profile pic"></img>
                 </div>
                 
             </div>

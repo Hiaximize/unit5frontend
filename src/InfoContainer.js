@@ -6,8 +6,8 @@ class InfoContainer extends React.Component{
         super(props)
         this.handleDelete = this.handleDelete.bind(this)
     }
-    handleUpdate(){
-        this.props.handleUpdate()
+    updateMember(){
+        this.props.updateMember()
     }
     
     handleChange(){
@@ -16,6 +16,7 @@ class InfoContainer extends React.Component{
 
     handleDelete(event, _id) {
         event.preventDefault()
+        console.log("im deleting")
         fetch(`http://localhost:3000/members/${_id}`, {
                 method: "DELETE",
                 headers: {

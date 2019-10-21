@@ -23,8 +23,8 @@ class Main extends React.Component{
     }
 
     fetchMembers = () => {
-        fetch('https://membershiptrackerbackend.herokuapp.com/members', {
-        // fetch('http://localhost:3000/members', {
+        // fetch('https://membershiptrackerbackend.herokuapp.com/members', {
+        fetch('http://localhost:3000/members', {
                 method: "GET",
                 mode: "cors"
             }
@@ -37,11 +37,11 @@ class Main extends React.Component{
     }
 
     handleCreate(createdData){
-        console.log(createdData)
+        console.log(createdData.addMemberDueDate)
         axios({
             method: 'post',
-            url: 'https://membershiptrackerbackend.herokuapp.com/members',
-            // url: 'http://localhost:3000/members',
+            // url: 'https://membershiptrackerbackend.herokuapp.com/members',
+            url: 'http://localhost:3000/members',
             data:{
                 firstName: createdData.firstName,
                 lastName: createdData.lastName,
@@ -56,39 +56,36 @@ class Main extends React.Component{
             }}).then(createdData => {
                 this.fetchMembers()
                 this.handleView('home')
-                console.log("this is line 55", createdData)
         }).catch(error=>{
             console.log(error)
         })
     }
 
-    updateMembers = (updatedMember) => {
-        console.log(updatedMember)
-        axios({
-            method: 'put',
-            url:`https://membershiptrackerbackend.herokuapp.com/${updatedMember._id}`
-        }).then(updatedMember => {
-            this.fetchMembers()
-            console.log("inside promise", updatedMember)
-            this.handleView('home')
-        }).catch(error=>{
-            console.log(error)
-        })
-    }
-
-    handleUpdate(updatedMember){
-        fetch(`/members/${updatedMember._id}`, {
-            body: JSON.stringify(updatedMember),
-            method: "PUT",
-            mode: 'cors',
-            headers: {
-                "Accept": "application/json, text/plain, */*", 
-                "Content-Type": "application/json"
-            }
-        }).then(updatedMember => {
-            this.props.handleView('home')
-            this.fetchMembers()
-        })
+    handleUpdate(event, updatedData){
+        event.preventDefault()
+        console.log("first log statement", updatedData)
+        // axios({
+        //     method: "PUT",
+        //     url: `http://localhost:3000/members/${_id}`,
+        //     data: {
+        //             firstName: updatedData.firstName,
+        //             lastName: updatedData.lastName,
+        //             phoneNumber: updatedData.phoneNumber,
+        //             address: updatedData.address,
+        //             city: updatedData.city,
+        //             state: updatedData.state,
+        //             zip: updatedData.zip,
+        //             email: updatedData.email,
+        //             startDate: updatedData.addMemberStartDate,
+        //             dueDate: updatedData.addMemberDueDate
+        //     }
+        // }).then(updatedData => {
+        //     console.log("2nd log statement", updatedData)
+        //     this.handleView('home')
+        //     this.fetchMembers()
+        // }).catch(error=>{
+        //     console.log(error)
+        // })
     }
    
 
@@ -136,6 +133,7 @@ class Main extends React.Component{
 
                 {this.state.view.page==='home' ?
                 <InfoContainer
+                // updateMembers={this.updateMembers}
                 handleUpdate={this.handleUpdate}
                 members={this.state.members} 
                 view={this.state.view}
@@ -156,7 +154,7 @@ class Main extends React.Component{
                 view={this.state.view}
                 handleChange={this.handleChange}
                 handleView={this.handleView}
-                members={this.state.memers}/> : ''}
+                members={this.state.members}/> : ''}
 
                 <MyStickyFooter />
             
