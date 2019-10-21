@@ -19,7 +19,8 @@ class Main extends React.Component{
         this.handleChange = this.handleChange.bind(this)
         this.handleView = this.handleView.bind(this)
         this.handleCreate = this.handleCreate.bind(this)
-        this.handleUpdate = this.handleUpdate.bind(this)     
+        this.handleUpdate = this.handleUpdate.bind(this)
+        this.handleDelete = this.handleDelete.bind(this)     
     }
 
     fetchMembers = () => {
@@ -59,6 +60,27 @@ class Main extends React.Component{
         }).catch(error=>{
             console.log(error)
         })
+    }
+
+    handleDelete(event, _id) {
+            event.preventDefault()
+            console.log("im deleting")
+            fetch(`http://localhost:3000/members/${_id}`, {
+                method: "DELETE",
+                headers: {
+                    "Accept": "application/json, text/plain, */*",
+                    "Content-Type": "application/json"
+                }
+            }).then(data => {
+                console.log(data)
+                this.setState(prevState => {
+
+                    const members = prevState.members
+                    return {
+                        members
+                    }
+                })
+            })
     }
 
     handleUpdate(event, updatedData){

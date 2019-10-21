@@ -4,8 +4,13 @@ import Member from './Member.js'
 class InfoContainer extends React.Component{
     constructor(props){
         super(props)
-        this.handleDelete = this.handleDelete.bind(this)
+        // this.handleDelete = this.handleDelete.bind(this)
     }
+
+    handleView(){
+        this.props.handleView()
+    }
+
     updateMember(){
         this.props.updateMember()
     }
@@ -14,27 +19,28 @@ class InfoContainer extends React.Component{
         this.props.handleChange()
     }
 
-    handleDelete(event, _id) {
-        event.preventDefault()
-        console.log("im deleting")
-        fetch(`http://localhost:3000/members/${_id}`, {
-                method: "DELETE",
-                headers: {
-                    "Accept": "application/json, text/plain, */*",
-                    "Content-Type": "application/json"
-                }
-            }).then(data => {
-                console.log(data)
-                this.setState(prevState => {
+
+    // handleDelete(event, _id) {
+    //     event.preventDefault()
+    //     console.log("im deleting")
+    //     fetch(`http://localhost:3000/members/${_id}`, {
+    //             method: "DELETE",
+    //             headers: {
+    //                 "Accept": "application/json, text/plain, */*",
+    //                 "Content-Type": "application/json"
+    //             }
+    //         }).then(data => {
+    //             console.log(data)
+    //             this.setState(prevState => {
                     
-                    const members = prevState.members
-                    return {
-                        members
-                    }
-                })
-            })
+    //                 const members = prevState.members
+    //                 return {
+    //                     members
+    //                 }
+    //             })
+    //         })
             
-    }
+    // }
     
     render(){
         

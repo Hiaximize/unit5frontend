@@ -105,7 +105,6 @@ class Member extends React.Component{
                                             <label id="Premium" className="updateMemberLabel" htmlFor="updateMemberCheckBoxPremiumMembership">Premium</label>
                                             <input name="updateMemberPremium" type="checkbox" id="updateMemberCheckBoxPremiumMembership" className="updateMemberInput updateMemberCheckBox" /><br />
 
-                                            {/* may cause issues here */}
                                             <label htmlFor="updateMemberStartDate">Start Date</label>
                                             <input name="updateMemberStartDate" id="updateMemberStartDate" className="updateMemberInput updateMemberDates" placeholder="Start Date" type="date" />
 
