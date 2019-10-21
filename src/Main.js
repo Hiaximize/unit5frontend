@@ -14,7 +14,25 @@ class Main extends React.Component{
                 pageTitle: 'home',
                 page: 'home',
             },
-            members: []
+            members: [],
+            memberInfo:{
+                _id: null,
+                dateCreated: '',
+                firstName: '',
+                lastName: '',
+                phoneNumber: '',
+                address: '',
+                city: '',
+                state: '',
+                zip: '',
+                email: '',
+                basic: '',
+                silver: '',
+                premium: '',
+                startDate: '',
+                dueDate: '',
+                notes: ''
+            }
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleView = this.handleView.bind(this)
@@ -36,29 +54,31 @@ class Main extends React.Component{
             }))
     }
 
-    handleCreate(createdData){
-        console.log(createdData.addMemberDueDate)
-        axios({
-            method: 'post',
-            // url: 'https://membershiptrackerbackend.herokuapp.com/members',
-            url: 'http://localhost:3000/members',
-            data:{
-                firstName: createdData.firstName,
-                lastName: createdData.lastName,
-                phoneNumber: createdData.phoneNumber,
-                address: createdData.address,
-                city: createdData.city,
-                state: createdData.state,
-                zip: createdData.zip,
-                email: createdData.email,
-                startDate: createdData.addMemberStartDate,
-                dueDate: createdData.addMemberDueDate
-            }}).then(createdData => {
-                this.fetchMembers()
-                this.handleView('home')
-        }).catch(error=>{
-            console.log(error)
-        })
+    handleCreate(event, createdData){
+        event.preventDefault()
+        console.log("mains handle create")
+        console.log(createdData)
+        // axios({
+        //     method: 'post',
+        //     // url: 'https://membershiptrackerbackend.herokuapp.com/members',
+        //     url: 'http://localhost:3000/members',
+        //     data:{
+        //         firstName: createdData.firstName,
+        //         lastName: createdData.lastName,
+        //         phoneNumber: createdData.phoneNumber,
+        //         address: createdData.address,
+        //         city: createdData.city,
+        //         state: createdData.state,
+        //         zip: createdData.zip,
+        //         email: createdData.email,
+        //         startDate: createdData.addMemberStartDate,
+        //         dueDate: createdData.addMemberDueDate
+        //     }}).then(createdData => {
+        //         this.fetchMembers()
+        //         this.handleView('home')
+        // }).catch(error=>{
+        //     console.log(error)
+        // })
     }
 
     handleUpdate(event, updatedData){
@@ -126,14 +146,14 @@ class Main extends React.Component{
         return(
             <div id="main">
                 
-                <Header 
+                <Header
+                memberInfo={this.state.memberInfo} 
                 view={this.state.view}
                 handleChange={this.handleChange}
                 handleView={this.handleView}/>
 
                 {this.state.view.page==='home' ?
                 <InfoContainer
-                // updateMembers={this.updateMembers}
                 handleUpdate={this.handleUpdate}
                 members={this.state.members} 
                 view={this.state.view}
@@ -149,6 +169,7 @@ class Main extends React.Component{
 
                 {this.state.view.page==='addMember' ?
                 <AddMember
+                memberInfo={this.state.memberInfo}
                 handleSubmit={this.handleSubmit}
                 handleCreate={this.handleCreate} 
                 view={this.state.view}
