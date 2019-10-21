@@ -50,10 +50,12 @@ class Member extends React.Component{
             <div id="memberRow" key={index}>
                 
                     <div className="memberRowInfo"> 
-                        <li id={index+1} className="index_name memberName info"><span id="indexNumber">{index+1}</span> <span>{member.firstName} {member.lastName}</span></li> <li id="date" className="date info"><Moment format="YYYY/MM/DD">{member.dueDate}</Moment></li> <li className="phoneNumber info">{member.phoneNumber}</li> <li className="email info">{member.email}</li> <li className="membershipType">membershipType</li>
+                        <li id={index+1} className="index_name memberName info"><span id="indexNumber">{index+1}</span> <span>{member.firstName} {member.lastName}</span></li> <li id="date" className="date info"><Moment format="MM/DD/YYYY">{member.dueDate}</Moment></li> <li className="phoneNumber info">{member.phoneNumber}</li> <li className="email info">{member.email}</li> <li id="membershipType" className="membershipTypes">{member.premium === "on" ? document.getElementById("membershipType").innerHTML = "Premium" : ""}
+                        {/* {member._id} */}
+                        </li>
                     </div>
                     <div id="memberButtonContainer">
-                        <button id="editMemberButton" onClick={this.handleOpenModal}>Edit Member</button>
+                        <button id="editMemberButton" onClick={this.handleOpenModal}>Edit</button>
                     </div>
                 <ReactModal
                 overlayClassName="overlay" 
@@ -70,7 +72,7 @@ class Member extends React.Component{
                     <form id="updateMemberForm" onSubmit={this.props.handleUpdate}>
                         <fieldset>
                             <legend className="updateMemberLegend">Member Information</legend>
-                                <input name="updateMemberFirstName" type="text" id="updateMemberFirstName"  className="updateMemberInput" placeholder="First Name"  required />
+                                <input name="updateMemberFirstName" type="text" id="updateMemberFirstName"  className="updateMemberInput" value={member.firstName} onChange={this.handleChange} required />
 
                                 <input name="updateMemberLastName" type="text" id="updateMemberLastName" className="updateMemberInput" placeholder="Last Name" required />
 
@@ -124,7 +126,7 @@ class Member extends React.Component{
 
                                     <div id="updateMemberProfilePhotoContainer">
                                         <img src="placeholder.png" id="updateMemberPicture" alt="profileImage"/>
-                                        <li onClick={this.props.handleDelete} id="updateMemberDelete">Delete Member</li>
+                                        <li onClick={this.handleDelete} id="updateMemberDelete">Delete Member</li>
                                     </div>
                                 </div>
                                 

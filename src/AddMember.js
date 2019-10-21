@@ -68,13 +68,14 @@ class AddMember extends React.Component{
                                             <legend>Membership Information</legend>
 
                                             <label id="basicLabel" className="addMemberLabel" htmlFor="basic">Basic</label>
-                                            <input type="checkbox" value={this.state.basic} onChange={this.handleChange} id="basic" className="addMemberInput addMemberCheckBox" />
+                                            <input type="radio" onChange={this.handleChange} id="basic" className="addMemberInput addMemberCheckBox" />
 
                                             <label id="silverLabel" className="addMemberLabel" htmlFor="silver">Silver</label>
-                                            <input name="addMemberSilver" type="checkbox" className="addMemberInput addMemberCheckBox" id="silver" value={this.state.silver} onChange={this.handleChange} />
+                                            <input name="addMemberSilver" type="radio" className="addMemberInput addMemberCheckBox" id="silver" onChange={this.handleChange} />
 
                                             <label id="Premium" className="addMemberLabel" htmlFor="premium">Premium</label>
-                                            <input name="addMemberPremium" value={this.state.premium} onChange={this.handleChange} type="checkbox" id="premium" className="addMemberInput addMemberCheckBox" /><br />
+                                            <input name="addMemberPremium" onChange={this.handleChange} type="radio"
+                                             id="premium" className="addMemberInput addMemberCheckBox" /><br />
 
                                             {/* may cause issues here */}
                                             <label htmlFor="addMemberStartDate">Start Date</label>
@@ -82,8 +83,8 @@ class AddMember extends React.Component{
                                             onChange={this.handleChange}/>
 
                                             <p id="dueDate"></p>
-                                            <input name="addMemberDueDate" id="addMemberDueDate" className="addMemberInput addMemberDates" placeholder="Due Date" type="date"  
-                                            onChange={this.handleChange}/>
+                                            {/* <input name="addMemberDueDate" id="addMemberDueDate" className="addMemberInput addMemberDates" placeholder="Due Date" type="date"  
+                                            onChange={this.handleChange}/> */}
                                         </fieldset>
                                 
                                         <div id="bottomRow">

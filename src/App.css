@@ -114,6 +114,7 @@ li{
 }
 .memberName{
   width: 250px;
+  border: 1px solid black;
   align-self: center;
   /* border-right: 1px solid #4d6776; */
 }
@@ -122,12 +123,14 @@ li{
   justify-content: space-between;
 }
 .phoneNumber{
-  width: 150px;
+  width: 110px;
   text-align: center;
   align-self: center;
+  border: 1px solid yellow;
   /* border-right: 1px solid #4d6776; */
 }
 .email{
+  border: 1px solid green;
   width: 250px;
   align-self: center;
   /* border-right: 1px solid #4d6776; */
@@ -138,8 +141,9 @@ li{
   /* border-right: 1px solid #4d6776; */
 }
 .date{
-  width: 300px;
   align-self: center;
+  width: 110px;
+  border: 1px solid gold;
   /* border-right: 1px solid #4d6776; */
 }
 .memberRowInfo{
