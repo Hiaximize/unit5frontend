@@ -3,48 +3,62 @@ import React from 'react'
 class AddMember extends React.Component{
     constructor(props){
         super(props)
+        this.state={
+            _id: null,
+            firstName: '',
+            lastName: '',
+            phoneNumber: '',
+            address: '',
+            city: '',
+            state: '',
+            zip: '',
+            email: '',
+            basic: '',
+            silver: '',
+            premium: '',
+            startDate: '',
+            dueDate: '',
+            notes: ''
+        }
+        this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
     }
     handleChange(event){
-        this.setState(
-            {
-                [event.target.id]: event.target.id
-            }
-        )
+        this.setState({
+            [event.target.id]: event.target.value
+        })
     }
-    // handleChange(){
-    //     this.props.handleChange()
-    // }
-    // handleSubmit(event){
-    //     event.preventDefault()
-    //     console.log("im in handle submit")
-    //     console.log(this.props)
-    //     console.log(this.state)
-    //     this.props.handleCreate(this.state)
-    // }
+
+    handleSubmit(event){
+        event.preventDefault()
+        console.log("im in handle submit")
+        console.log(this.props)
+        console.log(this.state)
+        this.props.handleCreate(this.state)
+    }
 
     render(){
         return(
             <div id="addMemberContainer">
                 <div id="formContainer">
-                    <form id="addMemberForm" onSubmit={this.props.handleCreate}>
+                    <form id="addMemberForm" onSubmit={this.handleSubmit}>
                         <fieldset>
                             <legend>Member Information</legend>
-                                <input name="firstName" value={this.props.memberInfo.firstName} onChange={this.handleChange} type="text" id="firstName"  className="addMemberInput" placeholder="First Name" required />
+                                <input name="firstName" value={this.state.firstName} onChange={this.handleChange} type="text" id="firstName"  className="addMemberInput" placeholder="First Name" required />
 
-                                <input name="lastName" value={this.props.lastName} onChange={this.handleChange} type="text" id="lastName" className="addMemberInput" placeholder="Last Name" required />
+                                <input name="lastName" value={this.state.lastName} onChange={this.handleChange} type="text" id="lastName" className="addMemberInput" placeholder="Last Name" required />
 
-                                <input name="phoneNumber" value={this.props.phoneNumber} onChange={this.handleChange} type="number" id="phoneNumber" className="addMemberInput" placeholder="Phone Number" required />
+                                <input name="phoneNumber" value={this.state.phoneNumber} onChange={this.handleChange} type="number" id="phoneNumber" className="addMemberInput" placeholder="Phone Number" required />
 
-                                <input name="address" type="text" id="address" value={this.props.address} onChange={this.handleChange} className="addMemberInput" placeholder="Address" required /><br />
+                                <input name="address" type="text" id="address" value={this.state.address} onChange={this.handleChange} className="addMemberInput" placeholder="Address" required /><br />
 
-                                <input name="city" value={this.props.city} onChange={this.handleChange} type="text" id="city" className="addMemberInput" placeholder="City" required />
+                                <input name="city" value={this.state.city} onChange={this.handleChange} type="text" id="city" className="addMemberInput" placeholder="City" required />
 
-                                <input name="addMemberState" type="text" value={this.props.state} onChange={this.handleChange} id="state" className="addMemberInput" placeholder="State" required />
+                                <input name="addMemberState" type="text" value={this.state.state} onChange={this.handleChange} id="state" className="addMemberInput" placeholder="State" required />
 
-                                <input name="addMemberZip" value={this.props.zip} onChange={this.handleChange} type="text" id="zip" className="addMemberInput" placeholder="Zip" required />
+                                <input name="addMemberZip" value={this.state.zip} onChange={this.handleChange} type="text" id="zip" className="addMemberInput" placeholder="Zip" required />
 
-                                <input name="addMemberEmail" value={this.props.email} onChange={this.handleChange} type="email" id="email" placeholder="Email" className="addMemberInput" required />                              
+                                <input name="addMemberEmail" value={this.state.email} onChange={this.handleChange} type="email" id="email" placeholder="Email" className="addMemberInput" required />                              
 
                                 <br />
 
@@ -74,7 +88,7 @@ class AddMember extends React.Component{
                                         </fieldset>
                                 
                                         <div id="bottomRow">
-                                            <textarea rows="10" value={this.props.notes} onChange={this.handleChange} name="addMemberNotes" id="notes" className="addMemberInput" placeholder="Notes" />
+                                            <textarea rows="10" value={this.state.notes} onChange={this.handleChange} name="addMemberNotes" id="notes" className="addMemberInput" placeholder="Notes" />
                                         
                                             <input type="submit" id="addMemberSubmitButton" value="ADD MEMBER" />
 

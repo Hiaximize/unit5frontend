@@ -54,8 +54,7 @@ class Main extends React.Component{
             }))
     }
 
-    handleCreate(event, createdData){
-        event.preventDefault()
+    handleCreate(createdData){
         console.log("mains handle create")
         console.log(createdData)
         // axios({
