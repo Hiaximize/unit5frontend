@@ -23,8 +23,8 @@ class Main extends React.Component{
     }
 
     fetchMembers = () => {
-        // fetch('https://membershiptrackerbackend.herokuapp.com/members', {
-        fetch('http://localhost:3000/members', {
+        fetch('https://membershiptrackerbackend.herokuapp.com/members', {
+        // fetch('http://localhost:3000/members', {
                 method: "GET",
                 mode: "cors"
             }
@@ -40,8 +40,8 @@ class Main extends React.Component{
         console.log(createdData)
         axios({
             method: 'post',
-            // url: 'https://membershiptrackerbackend.herokuapp.com/members',
-            url: 'http://localhost:3000/members',
+            url: 'https://membershiptrackerbackend.herokuapp.com/members',
+            // url: 'http://localhost:3000/members',
             data:{
                 firstName: createdData.firstName,
                 lastName: createdData.lastName,
