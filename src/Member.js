@@ -50,8 +50,9 @@ class Member extends React.Component{
             <div id="memberRow" key={index}>
                 
                     <div className="memberRowInfo"> 
-                        <li id={index+1} className="index_name memberName info"><span id="indexNumber">{index+1}</span> <span>{member.firstName} {member.lastName}</span></li> <li id="date" className="date info"><Moment format="MM/DD/YYYY">{member.dueDate}</Moment></li> <li className="phoneNumber info">{member.phoneNumber}</li> <li className="email info">{member.email}</li> <li id="membershipType" className="membershipTypes">{member.premium === "on" ? document.getElementById("membershipType").innerHTML = "Premium" : ""}
-                        {/* {member._id} */}
+                        <li id={index+1} className="index_name memberName info"><span id="indexNumber">{index+1}</span> <span id="name">{member.firstName} {member.lastName}</span></li> <li id="date" className="date info"><Moment format="MM/DD/YYYY">{member.dueDate}</Moment></li> <li className="phoneNumber info">{member.phoneNumber}</li> <li className="email info">{member.email}</li> <li id="membershipType" className="membershipTypes">{console.log(member)}
+                        {member.basic ? "Basic" : ''}{member.silver ? "Silver" : ''}
+                        {member.premium ? "Premium" : ''}
                         </li>
                     </div>
                     <div id="memberButtonContainer">
