@@ -37,7 +37,7 @@ class Main extends React.Component{
     }
 
     handleCreate(createdData){
-        console.log(createdData.addMemberDueDate)
+        console.log(createdData)
         axios({
             method: 'post',
             // url: 'https://membershiptrackerbackend.herokuapp.com/members',
@@ -51,6 +51,9 @@ class Main extends React.Component{
                 state: createdData.state,
                 zip: createdData.zip,
                 email: createdData.email,
+                basic: createdData.basic,
+                silver: createdData.silver,
+                premium: createdData.premium,
                 startDate: createdData.addMemberStartDate,
                 dueDate: createdData.addMemberDueDate
             }}).then(createdData => {

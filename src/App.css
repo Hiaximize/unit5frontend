@@ -117,7 +117,7 @@ li{
 }
 .memberName{
   width: 250px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   align-self: center;
   /* border-right: 1px solid #4d6776; */
 }
@@ -133,24 +133,25 @@ li{
   width: 110px;
   text-align: center;
   align-self: center;
-  border: 1px solid yellow;
+  /* border: 1px solid yellow; */
   /* border-right: 1px solid #4d6776; */
 }
 .email{
-  border: 1px solid green;
+  /* border: 1px solid green; */
   width: 250px;
   align-self: center;
   /* border-right: 1px solid #4d6776; */
 }
-.membershipType{
-  width: 150px;
+.membershipTypes{
+  width: 100px;
   align-self: center;
-  /* border-right: 1px solid #4d6776; */
+  /* border: 1px solid gold; */
+  text-align: center;
 }
 .date{
   align-self: center;
   width: 110px;
-  border: 1px solid gold;
+  /* border: 1px solid gold; */
   /* border-right: 1px solid #4d6776; */
 }
 .memberRowInfo{
