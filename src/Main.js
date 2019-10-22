@@ -23,8 +23,8 @@ class Main extends React.Component{
     }
 
     fetchMembers = () => {
-        fetch('https://membershiptrackerbackend.herokuapp.com/members', {
-        // fetch('http://localhost:3000/members', {
+        // fetch('https://membershiptrackerbackend.herokuapp.com/members', {
+        fetch('http://localhost:3000/members', {
                 method: "GET",
                 mode: "cors"
             }
@@ -40,8 +40,8 @@ class Main extends React.Component{
         console.log(createdData)
         axios({
             method: 'post',
-            url: 'https://membershiptrackerbackend.herokuapp.com/members',
-            // url: 'http://localhost:3000/members',
+            // url: 'https://membershiptrackerbackend.herokuapp.com/members',
+            url: 'http://localhost:3000/members',
             data:{
                 firstName: createdData.firstName,
                 lastName: createdData.lastName,
@@ -55,7 +55,8 @@ class Main extends React.Component{
                 silver: createdData.silver,
                 premium: createdData.premium,
                 startDate: createdData.addMemberStartDate,
-                dueDate: createdData.addMemberDueDate
+                dueDate: createdData.addMemberDueDate,
+                notes: createdData.notes
             }}).then(createdData => {
                 this.fetchMembers()
                 this.handleView('home')
@@ -136,7 +137,6 @@ class Main extends React.Component{
 
                 {this.state.view.page==='home' ?
                 <InfoContainer
-                // updateMembers={this.updateMembers}
                 handleUpdate={this.handleUpdate}
                 members={this.state.members} 
                 view={this.state.view}

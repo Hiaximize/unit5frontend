@@ -47,16 +47,17 @@ class Member extends React.Component{
         return(
             <div>
             {this.props.members.map((member, index)=>
+            // <Moment format="YYYY/MM/DD">{let date={member.startDate}</Moment>
             <div id="memberRow" key={index}>
                 
                     <div className="memberRowInfo"> 
-                        <li id={index+1} className="index_name memberName info"><span id="indexNumber">{index+1}</span> <span id="name">{member.firstName} {member.lastName}</span></li> <li id="date" className="date info"><Moment format="MM/DD/YYYY">{member.dueDate}</Moment></li> <li className="phoneNumber info">{member.phoneNumber}</li> <li className="email info">{member.email}</li> <li id="membershipType" className="membershipTypes">{console.log(member)}
+                        <li id={index+1} className="index_name memberName info"><span id="indexNumber">{index+1}</span> <span id="name">{member.firstName} {member.lastName}</span></li> <li id="date" className="date info"><Moment format="MM/DD/YYYY">{member.dueDate}</Moment></li> <li className="phoneNumber info">{member.phoneNumber}</li> <li className="email info">{member.email}</li> <li id="membershipType" className="membershipTypes">{/*{console.log(member)}*/}
                         {member.basic ? "Basic" : ''}{member.silver ? "Silver" : ''}
                         {member.premium ? "Premium" : ''}
                         </li>
                     </div>
                     <div id="memberButtonContainer">
-                        <button id="editMemberButton" onClick={this.handleOpenModal}>Edit</button>
+                        <button id="editMemberButton" onClick={this.handleOpenModal.bind(this)}>Edit</button>
                     </div>
                 <ReactModal
                 overlayClassName="overlay" 
@@ -75,19 +76,35 @@ class Member extends React.Component{
                             <legend className="updateMemberLegend">Member Information</legend>
                                 <input name="updateMemberFirstName" type="text" id="updateMemberFirstName"  className="updateMemberInput" value={member.firstName} onChange={this.handleChange} required />
 
-                                <input name="updateMemberLastName" type="text" id="updateMemberLastName" className="updateMemberInput" placeholder="Last Name" required />
+                                <input name="updateMemberLastName" type="text" id="updateMemberLastName"
+                                value={member.lastName}
+                                onChange={this.handleChange}className="updateMemberInput" placeholder="Last Name" required />
 
-                                <input name="updateMemberNumber" type="number" id="updateMemberPhoneNumber" className="updateMemberInput" placeholder="Phone Number" required />
+                                <input name="updateMemberNumber" type="number" id="updateMemberPhoneNumber"
+                                value={member.phoneNumber}
+                                onChange={this.handleChange}
+                                className="updateMemberInput" placeholder="Phone Number" required />
 
-                                <input name="updateMemberAddress" type="text" id="updateMemberAddress" className="updateMemberInput" placeholder="Address" required /><br />
+                                <input name="updateMemberAddress" type="text" id="updateMemberAddress" 
+                                value={member.address}
+                                onChange={this.handleChange}
+                                className="updateMemberInput" placeholder="Address" required /><br />
 
-                                <input name="updateMemberCity" type="text" id="updateMemberCity" className="updateMemberInput" placeholder="City" required />
+                                <input name="updateMemberCity" type="text" id="updateMemberCity" 
+                                value={member.city}
+                                onChange={this.handleChange}className="updateMemberInput" placeholder="City" required />
 
-                                <input name="updateMemberState" type="text" id="updateMemberState" className="updateMemberInput" placeholder="State" required />
+                                <input name="updateMemberState" type="text" id="updateMemberState" 
+                                value={member.state}
+                                onChange={this.handleChange}className="updateMemberInput" placeholder="State" required />
 
-                                <input name="updateMemberZip" type="number" id="updateMemberZip" className="updateMemberInput" placeholder="Zip" required />
+                                <input name="updateMemberZip" type="number" id="updateMemberZip" 
+                                value={member.zip}
+                                onChange={this.handleChange}className="updateMemberInput" placeholder="Zip" required />
 
-                                <input name="updateMemberEmail" type="email" id="updateMemberEmailAddress" placeholder="Email" className="updateMemberInput" required />                              
+                                <input name="updateMemberEmail" type="email" id="updateMemberEmailAddress" placeholder="Email" 
+                                value={member.email}
+                                onChange={this.handleChange}className="updateMemberInput" required />                              
 
                                 <br />
 
@@ -97,23 +114,37 @@ class Member extends React.Component{
                                             <legend className="updateMemberLegend">Update Member</legend>
 
                                             <label id="basicLabel" className="updateMemberLabel" htmlFor="updateMemberCheckBoxBasicMembership">Basic</label>
-                                            <input type="checkbox" id="updateMemberCheckBoxBasicMembership" className="updateMemberInput updateMemberCheckBox" />
+                                            <input type="radio" id="updateMemberCheckBoxBasicMembership" 
+                                            value={member.basic} onChange={this.handleChange}className="updateMemberInput updateMemberCheckBox" />
 
                                             <label id="silverLabel" className="updateMemberLabel" htmlFor="updateMemberCheckBoxSilverMembership">Silver</label>
-                                            <input name="updateMemberSilver" type="checkbox" className="updateMemberInput updateMemberCheckBox" id="updateMemberCheckBoxSilverMembership" />
+                                            <input name="updateMemberSilver" type="radio" 
+                                            value={member.silver}
+                                            onChange={this.handleChange}className="updateMemberInput updateMemberCheckBox" id="updateMemberCheckBoxSilverMembership" />
 
                                             <label id="Premium" className="updateMemberLabel" htmlFor="updateMemberCheckBoxPremiumMembership">Premium</label>
-                                            <input name="updateMemberPremium" type="checkbox" id="updateMemberCheckBoxPremiumMembership" className="updateMemberInput updateMemberCheckBox" /><br />
+                                            <input name="updateMemberPremium" type="radio" id="updateMemberCheckBoxPremiumMembership" 
+                                            value={member.premium}
+                                            onChange={this.handleChange}className="updateMemberInput updateMemberCheckBox" /><br />
 
                                             {/* may cause issues here */}
                                             <label htmlFor="updateMemberStartDate">Start Date</label>
-                                            <input name="updateMemberStartDate" id="updateMemberStartDate" className="updateMemberInput updateMemberDates" placeholder="Start Date" type="date" />
-
-                                            <input name="updateMemberDueDate" id="updateMemberDueDate" className="updateMemberInput updateMemberDates" placeholder="Due Date" type="date" required />
+                                            <input name="updateMemberStartDate" id="updateMemberStartDate" 
+                                            value={member.startDate ? member.startDate.slice(0,9):''} onChange={this.handleChange}className="updateMemberInput updateMemberDates" placeholder="Start Date" type="date" />
+                                            {/*{console.log("////////////")}
+                                            {console.log("start date:", typeof member.startDate)}
+                                            {console.log("dueDate:", member.dueDate)}
+                                            {console.log("/////////")}
+                                            {member.startDate ? console.log(member.startDate.slice(0,9)):''}
+                                            {/* <input name="updateMemberDueDate" id="updateMemberDueDate" 
+                                            value={member.dueDate}
+                                            onChange={this.handleChange}className="updateMemberInput updateMemberDates" placeholder="Due Date" type="date" required /> */}
                                         </fieldset>
                                 
                                         <div id="bottomRow">
-                                            <textarea rows="10" name="updateMemberNotes" id="updateMemberNotes" className="updateMemberInput" placeholder="Notes" />
+                                            <textarea rows="10" name="updateMemberNotes" id="updateMemberNotes" 
+                                            value={member.notes}
+                                            onChange={this.handleChange}className="updateMemberInput" placeholder="Notes" />
                                         
                                             <input type="submit" id="updateMemberSubmitButton" value="UPDATE MEMBER" />
 
