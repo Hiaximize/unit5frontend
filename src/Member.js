@@ -57,7 +57,8 @@ class Member extends React.Component{
                         </li>
                     </div>
                     <div id="memberButtonContainer">
-                        <button id="editMemberButton" onClick={this.handleOpenModal.bind(this)}>Edit</button>
+                        <button id={"button"+ index+1} className="editMemberButton" onClick={()=> {this.handleOpenModal()}}>Edit</button>
+
                     </div>
                 <ReactModal
                 overlayClassName="overlay" 
