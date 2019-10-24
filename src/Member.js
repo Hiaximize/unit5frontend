@@ -30,6 +30,10 @@ class Member extends React.Component{
         this.props.handleDelete()
     }    
 
+    handleView(){
+        this.props.handleView()
+    }
+
     handleOpenModal(){
         this.setState({
             showModal: true
@@ -51,16 +55,16 @@ class Member extends React.Component{
             <div id="memberRow" key={index}>
                 
                     <div className="memberRowInfo"> 
-                        <li id={index+1} className="index_name memberName info"><span id="indexNumber">{index+1}</span> <span id="name">{member.firstName} {member.lastName}</span></li> <li id="date" className="date info"><Moment format="MM/DD/YYYY">{member.dueDate}</Moment></li> <li className="phoneNumber info">{member.phoneNumber}</li> <li className="email info">{member.email}</li> <li id="membershipType" className="membershipTypes">{/*{console.log(member)}*/}
+                        <li id={index+1} className="index_name memberName info"><span id="indexNumber">{index+1}</span> <span id="name">{member.firstName} {member.lastName}</span></li> <li id="date" className="date info"><Moment format="MM/DD/YYYY">{member.startDate}</Moment></li> <li className="phoneNumber info">{member.phoneNumber}</li> <li className="email info">{member.email}</li> <li id="membershipType" className="membershipTypes">{/*{console.log(member)}*/}
                         {member.basic ? "Basic" : ''}{member.silver ? "Silver" : ''}
                         {member.premium ? "Premium" : ''}
                         </li>
                     </div>
                     <div id="memberButtonContainer">
-                        <button id={"button"+ index+1} className="editMemberButton" onClick={()=> {this.handleOpenModal()}}>Edit</button>
+                        <li id={"button"+ index+1} className="editMemberButton" onClick={()=> {this.props.handleView('update')}}>Edit</li>
 
                     </div>
-                <ReactModal
+                {/* <ReactModal
                 overlayClassName="overlay" 
                 className="modal"
                 handleUpdate={this.props.handleUpdate} 
@@ -128,10 +132,14 @@ class Member extends React.Component{
                                             value={member.premium}
                                             onChange={this.handleChange}className="updateMemberInput updateMemberCheckBox" /><br />
 
-                                            {/* may cause issues here */}
+                                            
                                             <label htmlFor="updateMemberStartDate">Start Date</label>
                                             <input name="updateMemberStartDate" id="updateMemberStartDate" 
-                                            value={member.startDate ? member.startDate.slice(0,9):''} onChange={this.handleChange}className="updateMemberInput updateMemberDates" placeholder="Start Date" type="date" />
+                                            value={member.startDate ? member.startDate.slice(0,9):''} onChange={this.handleChange}className="updateMemberInput updateMemberDates" placeholder="Start Date" type="date" />   
+
+                                              */}
+
+
                                             {/*{console.log("////////////")}
                                             {console.log("start date:", typeof member.startDate)}
                                             {console.log("dueDate:", member.dueDate)}
@@ -140,7 +148,7 @@ class Member extends React.Component{
                                             {/* <input name="updateMemberDueDate" id="updateMemberDueDate" 
                                             value={member.dueDate}
                                             onChange={this.handleChange}className="updateMemberInput updateMemberDates" placeholder="Due Date" type="date" required /> */}
-                                        </fieldset>
+ {/*}                                       </fieldset>
                                 
                                         <div id="bottomRow">
                                             <textarea rows="10" name="updateMemberNotes" id="updateMemberNotes" 
@@ -168,7 +176,7 @@ class Member extends React.Component{
                 </div>
             </div>
 
-                </ReactModal>
+                </ReactModal> */}
             </div>)}
         </div>
         )

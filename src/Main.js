@@ -3,6 +3,7 @@ import Header from './Header.js'
 import MyStickyFooter from './StickyFooter.js'
 import InfoContainer from './InfoContainer.js'
 import AddMember from './AddMember.js'
+import UpdateMember from './UpdateMember.js'
 import Calendar from './Calendar.js'
 import axios from 'axios'
 
@@ -111,6 +112,9 @@ class Main extends React.Component {
                 case 'calendar':
                     pageTitle = "Calendar"
                     break
+                case 'update':
+                    pageTitle = "Update Member"
+                    break
                 default:
                     break
             }
@@ -127,55 +131,54 @@ class Main extends React.Component {
         }
 
         render() {
-                return ( <
-                        div id = "main" >
+                return ( 
+                    <div id = "main">
 
-                        <
-                        Header view = { this.state.view }
+                        <Header view = { this.state.view }
                         handleChange = { this.handleChange }
                         handleView = { this.handleView }
                         />
 
-                        {
-                            this.state.view.page === 'home' ?
-                                <
-                                InfoContainer
-                            handleUpdate = { this.handleUpdate }
-                            members = { this.state.members }
-                            view = { this.state.view }
-                            handleChange = { this.handleChange }
-                            handleView = { this.handleView }
-                            handleDelete = { this.handleDelete }
-                            /> : ''}
+                        {this.state.view.page === 'home' ?
+                        <InfoContainer
+                        handleUpdate = { this.handleUpdate }
+                        members = { this.state.members }
+                        view = { this.state.view }
+                        handleChange = { this.handleChange }
+                        handleView = { this.handleView }
+                        handleDelete = { this.handleDelete }
+                        /> : ''}
 
-                            {
-                                this.state.view.page === 'calendar' ?
-                                    <
-                                    Calendar
-                                view = { this.state.view }
-                                handleChange = { this.handleChange }
-                                handleView = { this.handleView }
-                                /> : ''}
+                        {this.state.view.page === 'calendar' ?
+                        <Calendar
+                        view = { this.state.view }
+                        handleChange = { this.handleChange }
+                        handleView = { this.handleView }
+                        /> : ''}
 
-                                {
-                                    this.state.view.page === 'addMember' ?
-                                        <
-                                        AddMember
-                                    handleSubmit = { this.handleSubmit }
-                                    handleCreate = { this.handleCreate }
-                                    view = { this.state.view }
-                                    handleChange = { this.handleChange }
-                                    handleView = { this.handleView }
-                                    members = { this.state.members }
-                                    /> : ''}
+                        {this.state.view.page === 'addMember' ?
+                        <AddMember
+                        handleSubmit = { this.handleSubmit }
+                        handleCreate = { this.handleCreate }
+                        view = { this.state.view }
+                        handleChange = { this.handleChange }
+                        handleView = { this.handleView }
+                        members = { this.state.members }
+                        /> : ''}
 
-                                    <
-                                    MyStickyFooter / >
+                        {this.state.view.page === 'update' ? 
+                        <UpdateMember
+                        handleSubmit={this.handleSubmit}
+                        view={this.state.view}
+                        handleChange={this.handleChange}
+                        members={this.state.members}
+                        />: ''}
 
-                                        <
-                                        /div>
-                                )
-                            }
-                        }
+                        <MyStickyFooter />
 
-                        export default Main
+                    </div>
+                )
+            }
+        }
+
+export default Main

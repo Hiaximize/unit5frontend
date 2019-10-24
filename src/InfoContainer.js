@@ -42,6 +42,8 @@ class InfoContainer extends React.Component{
             <div id="infoContainer">
         
                 <Member
+                handleChange={this.props.handleChange}
+                handleView={this.props.handleView}
                 handleUpdate={this.props.handleUpdate} 
                 members={this.props.members}
                 handleDelete={this.handleDelete}/>
